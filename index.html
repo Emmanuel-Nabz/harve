@@ -228,7 +228,7 @@
             color: #7c9495;
             line-height: 1.3;
             margin-bottom: 8px;
-                      display: -webkit-box;
+            display: -webkit-box;
             -webkit-line-clamp: 3;
             line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -278,28 +278,24 @@
         }
 
         /* ===== CART ===== */
-       .cart-section {
-    background: transparent;
-    padding: 0;
-    margin-top: 30px;
-}
-       .cart-section h2 {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #ffffff;
-    padding-bottom: 14px;
-    margin-bottom: 18px;
-    font-size: 1.3em;
-    font-weight: 700;
-    flex-wrap: wrap;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-
-.cart-section h2 i {
-    color: #e67e22;
-    font-size: 1.15em;
-}
+        .cart-section {
+            background: transparent;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .cart-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            font-size: 1.3em;
+            font-weight: 700;
+            flex-wrap: wrap;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+        .cart-section h2 i { color: #e67e22; font-size: 1.15em; }
         .cart-badge {
             background: #e74c3c;
             color: white;
@@ -317,32 +313,29 @@
             font-size: 0.75em;
             margin-left: auto;
         }
-       #cartItems {
-    background: white;
-    border-radius: 14px;
-    padding: 4px 20px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border: 1px solid #ecf0f1;
-}
-#cartItems:empty,
-#cartItems .empty-cart {
-    background: white;
-    padding: 24px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px dashed #e0e0e0;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.cart-item:last-child {
-    border-bottom: none;
-}
+        #cartItems {
+            background: white;
+            border-radius: 14px;
+            padding: 4px 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #ecf0f1;
+        }
+        #cartItems:empty,
+        #cartItems .empty-cart {
+            background: white;
+            padding: 24px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .cart-item:last-child { border-bottom: none; }
         .cart-item .item-name {
             font-weight: 500;
             font-size: 0.95em;
@@ -357,189 +350,155 @@
             font-size: 0.9em;
         }
         .empty-cart { color: #95a5a6; text-align: center; padding: 20px 0; font-size: 0.95em; }
-/* ===== DISCOUNT CARD ===== */
-.discount-card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border: 1px solid #ecf0f1;
-}
 
-.discount-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95em;
-    font-weight: 700;
-    color: #8e44ad;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding-bottom: 14px;
-    margin-bottom: 16px;
-    border-bottom: 2px solid #f0f0f0;
-}
-.discount-card-header i {
-    color: #8e44ad;
-    font-size: 1.15em;
-}
+        /* ===== DISCOUNT CARD ===== */
+        .discount-card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #ecf0f1;
+        }
+        .discount-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #8e44ad;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .discount-card-header i { color: #8e44ad; font-size: 1.15em; }
+        .discount-input-row { display: flex; gap: 8px; align-items: stretch; }
+        .discount-input-row input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 1em;
+            background: white;
+            color: #2c3e50;
+            text-transform: uppercase;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .discount-input-row input:focus { border-color: #8e44ad; outline: none; }
+        .discount-input-row button {
+            padding: 12px 22px;
+            background: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95em;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: background 0.15s;
+        }
+        .discount-input-row button:hover { background: #7d3c98; }
+        .discount-input-row button:disabled { background: #95a5a6; cursor: not-allowed; }
+        #discountMessage {
+            margin-top: 10px;
+            font-size: 0.88em;
+            min-height: 20px;
+            line-height: 1.4;
+        }
+        #discountMessage.success { color: #27ae60; font-weight: 600; }
+        #discountMessage.error { color: #e74c3c; font-weight: 600; }
+        .discount-remove {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fef2f2;
+            color: #e74c3c;
+            border: 1px solid #fecaca;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+        .discount-remove:hover { background: #fecaca; }
 
-.discount-input-row {
-    display: flex;
-    gap: 8px;
-    align-items: stretch;
-}
-.discount-input-row input {
-    flex: 1;
-    min-width: 0;
-    padding: 12px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    font-size: 1em;
-    background: white;
-    color: #2c3e50;
-    text-transform: uppercase;
-    font-family: inherit;
-    transition: border-color 0.3s;
-}
-.discount-input-row input:focus {
-    border-color: #8e44ad;
-    outline: none;
-}
-.discount-input-row button {
-    padding: 12px 22px;
-    background: #8e44ad;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 0.95em;
-    white-space: nowrap;
-    font-family: inherit;
-    transition: background 0.15s;
-}
-.discount-input-row button:hover { background: #7d3c98; }
-.discount-input-row button:disabled {
-    background: #95a5a6;
-    cursor: not-allowed;
-}
+        /* ===== CHECKOUT CARDS ===== */
+        .checkout-card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #ecf0f1;
+        }
+        .checkout-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .checkout-card-header i { color: #e67e22; font-size: 1.15em; }
+        .checkout-card-header.summary i { color: #3498db; }
+        .checkout-card-header.contact i { color: #27ae60; }
 
-#discountMessage {
-    margin-top: 10px;
-    font-size: 0.88em;
-    min-height: 20px;
-    line-height: 1.4;
-}
-#discountMessage.success { color: #27ae60; font-weight: 600; }
-#discountMessage.error { color: #e74c3c; font-weight: 600; }
-
-.discount-remove {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #fef2f2;
-    color: #e74c3c;
-    border: 1px solid #fecaca;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.82em;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 8px;
-    font-family: inherit;
-}
-.discount-remove:hover { background: #fecaca; }
-
-/* ===== CHECKOUT CARDS ===== */
-.checkout-card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border: 1px solid #ecf0f1;
-}
-
-.checkout-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95em;
-    font-weight: 700;
-    color: #2c3e50;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding-bottom: 14px;
-    margin-bottom: 16px;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.checkout-card-header i {
-    color: #e67e22;
-    font-size: 1.15em;
-}
-
-.checkout-card-header.summary i { color: #3498db; }
-.checkout-card-header.contact i { color: #27ae60; }
-
-/* Summary rows */
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    font-size: 1em;
-    color: #555;
-}
-.summary-row .label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.summary-row .label i { color: #95a5a6; width: 18px; text-align: center; }
-.summary-row.total {
-    margin-top: 8px;
-    padding-top: 16px;
-    border-top: 2px solid #27ae60;
-    font-size: 1.25em;
-    font-weight: 700;
-    color: #27ae60;
-}
-.summary-row.total .label { color: #2c3e50; }
-.summary-row.total .label i { color: #27ae60; }
-
-/* Big CTA button */
-.checkout-cta {
-    width: 100%;
-    background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
-    color: white;
-    border: none;
-    padding: 18px;
-    border-radius: 30px;
-    font-size: 1.15em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s;
-    margin-top: 4px;
-    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-.checkout-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(39, 174, 96, 0.45);
-}
-.checkout-cta:active { transform: translateY(0); }
-.checkout-cta i { font-size: 1.15em; }
-        .cart-total, .delivery-row, .grand-total {
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            padding-top: 10px;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 1em;
+            color: #555;
         }
+        .summary-row .label { display: flex; align-items: center; gap: 8px; }
+        .summary-row .label i { color: #95a5a6; width: 18px; text-align: center; }
+        .summary-row.total {
+            margin-top: 8px;
+            padding-top: 16px;
+            border-top: 2px solid #27ae60;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #27ae60;
+        }
+        .summary-row.total .label { color: #2c3e50; }
+        .summary-row.total .label i { color: #27ae60; }
+
+        .checkout-cta {
+            width: 100%;
+            background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 30px;
+            font-size: 1.15em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.2s;
+            margin-top: 4px;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .checkout-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(39, 174, 96, 0.45); }
+        .checkout-cta:active { transform: translateY(0); }
+        .checkout-cta i { font-size: 1.15em; }
+
+        .cart-total, .delivery-row, .grand-total { display: flex; justify-content: space-between; padding-top: 10px; }
         .cart-total { font-size: 1.15em; font-weight: bold; margin-top: 8px; }
         .delivery-row { font-size: 0.95em; color: #555; }
         .grand-total {
@@ -567,12 +526,7 @@
 
         /* ===== FORMS ===== */
         .form-group { margin: 15px 0; }
-        .form-group label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.92em;
-        }
+        .form-group label { font-weight: 600; display: block; margin-bottom: 6px; font-size: 0.92em; }
         .input-field {
             width: 100%;
             padding: 12px;
@@ -607,41 +561,32 @@
         }
         .location-btn:hover { background: #2980b9; }
         .location-status { font-size: 0.8em; color: #7f8c8d; margin-top: 6px; }
+
         /* ===== PASSWORD EYE TOGGLE ===== */
-.pw-wrap {
-    position: relative;
-    display: block;
-}
-.pw-wrap input {
-    padding-right: 42px !important;
-}
-.pw-toggle {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    font-size: 1rem;
-    color: #95a5a6;
-    transition: color 0.15s;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-}
-.pw-toggle:hover {
-    color: #3498db;
-    background: #ecf0f1;
-}
-.pw-toggle.showing {
-    color: #3498db;
-}
+        .pw-wrap { position: relative; display: block; }
+        .pw-wrap input { padding-right: 42px !important; }
+        .pw-toggle {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 1rem;
+            color: #95a5a6;
+            transition: color 0.15s;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+        }
+        .pw-toggle:hover { color: #3498db; background: #ecf0f1; }
+        .pw-toggle.showing { color: #3498db; }
 
         /* ===== ORDER TRACKING (FLOATING) ===== */
         #orderTrackingSection {
@@ -737,130 +682,88 @@
             text-align: center;
         }
         .bottom-nav .nav-item .badge.show { display: inline-block; }
-         .no-items { text-align: center; color: #95a5a6; padding: 40px 0; font-size: 1em; }
-/* ===== CONFIRM MODAL ===== */
-.confirm-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10001;
-    padding: 16px;
-}
+        .no-items { text-align: center; color: #95a5a6; padding: 40px 0; font-size: 1em; }
 
-.confirm-modal-box {
-    background: white;
-    border-radius: 16px;
-    padding: 28px 26px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
+        /* ===== CONFIRM MODAL ===== */
+        .confirm-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 16px;
+        }
+        .confirm-modal-box {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 26px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .confirm-modal-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.8em;
+            color: #ef4444;
+        }
+        .confirm-modal-icon.neutral { background: rgba(107, 114, 128, 0.15); color: #6b7280; }
+        .confirm-modal-box h3 { font-size: 1.15rem; font-weight: 700; color: #2c3e50; margin-bottom: 10px; }
+        .confirm-modal-box p { color: #7f8c8d; font-size: 0.92rem; line-height: 1.6; margin-bottom: 22px; }
+        .confirm-modal-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .confirm-modal-buttons button {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .confirm-cancel { background: #ecf0f1; color: #2c3e50; }
+        .confirm-cancel:hover { background: #d5dbdb; }
+        .confirm-danger { background: #ef4444; color: #fff; }
+        .confirm-danger:hover { background: #dc2626; }
+        .confirm-primary { background: #27ae60; color: #fff; }
+        .confirm-primary:hover { background: #1e8449; }
 
-.confirm-modal-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(239, 68, 68, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    font-size: 1.8em;
-    color: #ef4444;
-}
-.confirm-modal-icon.neutral {
-    background: rgba(107, 114, 128, 0.15);
-    color: #6b7280;
-}
-
-.confirm-modal-box h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.confirm-modal-box p {
-    color: #7f8c8d;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-bottom: 22px;
-}
-
-.confirm-modal-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.confirm-modal-buttons button {
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-}
-
-.confirm-cancel {
-    background: #ecf0f1;
-    color: #2c3e50;
-}
-.confirm-cancel:hover {
-    background: #d5dbdb;
-}
-
-.confirm-danger {
-    background: #ef4444;
-    color: #fff;
-}
-.confirm-danger:hover {
-    background: #dc2626;
-}
-
-.confirm-primary {
-    background: #27ae60;
-    color: #fff;
-}
-.confirm-primary:hover {
-    background: #1e8449;
-}
-/* ===== FLOATING CART BAR ===== */
-#floatingCart {
-    display: none;
-    position: fixed;
-    bottom: 78px;
-    left: 10px;
-    right: 10px;
-    background: #e67e22;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 30px;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 8px 25px rgba(230,126,34,0.5);
-    z-index: 998;
-    max-width: 600px;
-    margin: 0 auto;
-    cursor: pointer;
-    font-size: 0.95em;
-    transition: transform 0.2s, background 0.2s;
-    animation: bounceIn 0.3s ease;
-}
-#floatingCart:hover { background: #d35400; transform: translateY(-2px); }
-#floatingCart:active { transform: translateY(0); }
+        /* ===== FLOATING CART BAR ===== */
+        #floatingCart {
+            display: none;
+            position: fixed;
+            bottom: 78px;
+            left: 10px;
+            right: 10px;
+            background: #e67e22;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 25px rgba(230,126,34,0.5);
+            z-index: 998;
+            max-width: 600px;
+            margin: 0 auto;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: transform 0.2s, background 0.2s;
+            animation: bounceIn 0.3s ease;
+        }
+        #floatingCart:hover { background: #d35400; transform: translateY(-2px); }
+        #floatingCart:active { transform: translateY(0); }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes bounceIn {
             0% { transform: scale(0.85); opacity: 0; }
             70% { transform: scale(1.02); }
@@ -888,8 +791,8 @@
 <!-- ===== HEADER ===== -->
 <div class="app-header">
     <img src="logo.png" alt="Harvest" style="width:80px;height:80px;border-radius:20px;margin:0 auto 16px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-    <h1>Harvest</h1>
-    <p>Order your favorite food online — delivered to your door!</p>
+    <h1 id="headerName">Harvest</h1>
+    <p id="headerTagline">Order your favorite food online — delivered to your door!</p>
 </div>
 <!-- ===== CUSTOMER LOGIN SECTION ===== -->
 <div id="customerLoginSection">
@@ -907,7 +810,7 @@
     </div>
     <div id="customerLoginForm" style="display: none;">
         <h3>Sign In</h3>
-          <div class="form-group">
+        <div class="form-group">
             <label><i class="fas fa-phone"></i> Phone Number</label>
             <div class="phone-row">
                 <select id="custLoginCountryCode" class="input-field">
@@ -928,13 +831,13 @@
         <div id="custLoginError" style="color: #e74c3c; margin-top: 10px;"></div>
     </div>
 
-     <div id="customerRegisterForm" style="display: none;">
+    <div id="customerRegisterForm" style="display: none;">
         <h3>Create Account</h3>
         <div class="form-group">
             <label><i class="fas fa-user"></i> Full Name</label>
             <input type="text" id="custRegName" class="input-field" placeholder="Enter your name">
         </div>
-           <div class="form-group">
+        <div class="form-group">
             <label><i class="fas fa-phone"></i> Phone Number</label>
             <div class="phone-row">
                 <select id="custRegCountryCode" class="input-field">
@@ -955,10 +858,10 @@
         <div class="login-buttons">
             <button class="btn-signup" onclick="customerRegister()">Create Account</button>
             <p style="font-size: 0.75em; color: #95a5a6; margin-top: 8px; text-align: center;">
-    By signing up, you agree to our
-    <a href="/privacy.html" target="_blank" style="color: #3498db;">Privacy Policy</a> and
-    <a href="/terms.html" target="_blank" style="color: #3498db;">Terms of Service</a>.
-</p>
+                By signing up, you agree to our
+                <a href="/privacy.html" target="_blank" style="color: #3498db;">Privacy Policy</a> and
+                <a href="/terms.html" target="_blank" style="color: #3498db;">Terms of Service</a>.
+            </p>
             <button class="btn-cancel" onclick="hideCustomerLogin()">Cancel</button>
         </div>
         <div id="custRegError" style="color: #e74c3c; margin-top: 10px;"></div>
@@ -1013,15 +916,15 @@
         </div>
         <div class="summary-row">
             <span class="label"><i class="fas fa-box"></i> Subtotal</span>
-            <span id="subtotal">UGX 0</span>
+            <span id="subtotal">—</span>
         </div>
         <div class="summary-row">
             <span class="label"><i class="fas fa-truck"></i> Delivery Fee</span>
-            <span id="deliveryFee">UGX 5,000</span>
+            <span id="deliveryFee">—</span>
         </div>
         <div class="summary-row total">
             <span class="label"><i class="fas fa-money-bill-wave"></i> Total</span>
-            <span id="grandTotal">UGX 5,000</span>
+            <span id="grandTotal">—</span>
         </div>
     </div>
     <!-- CARD: Discount Code -->
@@ -1127,7 +1030,7 @@
 
 <!-- ===== FLOATING CART BAR ===== -->
 <div id="floatingCart" onclick="scrollToCart()">
-    <span><strong id="floatingCartCount">0</strong> items · UGX <span id="floatingCartTotal">0</span></span>
+    <span><strong id="floatingCartCount">0</strong> items · <span id="floatingCartTotal">0</span></span>
     <span style="font-weight:700;">View Cart →</span>
 </div>
 
@@ -1156,30 +1059,84 @@
 // CONFIG
 // ============================================================
 var API = 'https://api.nabztech.com/api';
-var APP_VERSION = '1.0.0';   // bump this when you deploy a new customer app build
+var APP_VERSION = '1.0.0';
+
+// ============================================================
+// RESTAURANT CONTEXT
+// The API is at api.nabztech.com, so it can't see our subdomain.
+// We tell it explicitly which restaurant this page is for.
+// ============================================================
+function getRestaurantSlug() {
+    // 1) ?restaurant=... in the URL (manual override)
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = params.get('restaurant');
+    if (fromUrl) return fromUrl;
+
+    // 2) Subdomain (harvest.nabztech.com → "harvest")
+    var host = window.location.hostname.toLowerCase();
+    var parts = host.split('.');
+    var reserved = ['api', 'admin', 'driver', 'order', 'www', 'customer', 'localhost'];
+    if (parts.length >= 3 && reserved.indexOf(parts[0]) === -1) {
+        return parts[0];
+    }
+    return null;
+}
+
+var RESTAURANT_SLUG = getRestaurantSlug();
+console.log('🏪 Restaurant slug:', RESTAURANT_SLUG);
+
+// Append ?restaurant=<slug> (or &restaurant=...) to any URL
+function withRestaurant(url) {
+    if (!RESTAURANT_SLUG) return url;
+    var sep = url.indexOf('?') === -1 ? '?' : '&';
+    return url + sep + 'restaurant=' + encodeURIComponent(RESTAURANT_SLUG);
+}
+
+// ============================================================
+// MONEY FORMATTING (dynamic currency)
+// ============================================================
+var CURRENCY = 'UGX';   // will be overwritten by /restaurant-info on boot
+
+function formatMoney(amount) {
+    var n = parseFloat(amount) || 0;
+    var c = CURRENCY;
+
+    if (c === 'UGX' || c === 'TZS' || c === 'RWF') {
+        return c + ' ' + Math.round(n).toLocaleString('en-US');
+    }
+    if (c === 'BD' || c === 'KWD' || c === 'OMR') {
+        return c + ' ' + n.toFixed(3);
+    }
+    return c + ' ' + n.toFixed(2);
+}
+
+// ============================================================
+// DEFAULTS (overwritten once /restaurant-info loads)
+// ============================================================
 var DELIVERY_FEE = 5000;
 var MIN_ORDER = 30000;
-var FREE_FIRST_DELIVERY = true;   // set to false to disable
-var isFirstOrderServer = false;   // populated by server check below
+var FREE_FIRST_DELIVERY = true;
+var isFirstOrderServer = false;
 var currentCategory = 'All';
 var cart = [];
 var menuCategories = [];
 var trackingInterval = null;
 var currentTrackingOrderId = null;
 var pendingCheckout = false;
+var appliedDiscount = null;
+var notificationsEnabled = false;
+
 // ============================================================
 // PASSWORD EYE TOGGLE
 // ============================================================
 function attachPasswordEyes() {
     var passwordInputs = document.querySelectorAll('input[type="password"]');
-
     passwordInputs.forEach(function(input) {
         if (input.dataset.pwWrapped === '1') return;
         input.dataset.pwWrapped = '1';
 
         var wrap = document.createElement('div');
         wrap.className = 'pw-wrap';
-
         input.parentNode.insertBefore(wrap, input);
         wrap.appendChild(input);
 
@@ -1201,37 +1158,31 @@ function attachPasswordEyes() {
         wrap.appendChild(btn);
     });
 }
-
 document.addEventListener('DOMContentLoaded', attachPasswordEyes);
+
 // ============================================================
 // PHONE NORMALIZATION
-// Accepts any input + a country code, returns +CCXXXXXXXX format
 // ============================================================
 function normalizePhone(rawPhone, countryCode) {
     if (!rawPhone) return '';
-
     var trimmed = String(rawPhone).trim();
 
-    // If the user typed a full international number (+971...), trust it as-is
     if (trimmed.charAt(0) === '+') {
         var intlDigits = trimmed.replace(/\D/g, '');
         return intlDigits ? '+' + intlDigits : '';
     }
 
-    // Strip all non-digits from the local number
     var digits = trimmed.replace(/\D/g, '');
     if (!digits) return '';
-
-    // Strip leading zeros (e.g. UAE 0501234567 → 501234567)
     digits = digits.replace(/^0+/, '');
 
-    // Use the passed country code, default to Uganda
     var cc = countryCode || '+256';
     cc = cc.replace(/[^0-9+]/g, '');
     if (cc.charAt(0) !== '+') cc = '+' + cc;
 
     return cc + digits;
 }
+
 // ============================================================
 // XSS PROTECTION
 // ============================================================
@@ -1244,6 +1195,7 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
 }
+
 // ============================================================
 // CONFIRM DIALOGS
 // ============================================================
@@ -1297,6 +1249,7 @@ function showConfirm(options) {
         okBtn.focus();
     });
 }
+
 // ============================================================
 // CART
 // ============================================================
@@ -1313,7 +1266,6 @@ function saveCart() {
 
 function clearCart() {
     if (cart.length === 0) return;
-
     showConfirm({
         title: 'Clear your cart?',
         message: 'All items will be removed from your order. This cannot be undone.',
@@ -1337,19 +1289,18 @@ function renderCart() {
     for (var i = 0; i < cart.length; i++) totalItems += cart[i].quantity;
     badge.textContent = totalItems;
 
-          if (navBadge) {
+    if (navBadge) {
         navBadge.textContent = totalItems;
         navBadge.classList.toggle('show', totalItems > 0);
     }
 
-    // Update the floating cart bar
     var floatingCart = document.getElementById('floatingCart');
     if (floatingCart) {
         if (totalItems > 0) {
             var runningTotal = 0;
             cart.forEach(function(i) { runningTotal += i.price * i.quantity; });
             document.getElementById('floatingCartCount').textContent = totalItems;
-            document.getElementById('floatingCartTotal').textContent = (runningTotal + DELIVERY_FEE).toLocaleString();
+            document.getElementById('floatingCartTotal').textContent = formatMoney(runningTotal + DELIVERY_FEE);
             floatingCart.style.display = 'flex';
         } else {
             floatingCart.style.display = 'none';
@@ -1358,7 +1309,6 @@ function renderCart() {
 
     if (cart.length === 0) {
         cartContainer.innerHTML = '<div class="empty-cart">🛒 Your cart is empty</div>';
-        // Rebuild summary with zero state
         var summaryCardEmpty = document.getElementById('summaryCard');
         if (summaryCardEmpty) {
             summaryCardEmpty.innerHTML =
@@ -1367,15 +1317,15 @@ function renderCart() {
                 '</div>' +
                 '<div class="summary-row">' +
                     '<span class="label"><i class="fas fa-box"></i> Subtotal</span>' +
-                    '<span>UGX 0</span>' +
+                    '<span>' + formatMoney(0) + '</span>' +
                 '</div>' +
                 '<div class="summary-row">' +
                     '<span class="label"><i class="fas fa-truck"></i> Delivery Fee</span>' +
-                    '<span>UGX ' + DELIVERY_FEE.toLocaleString() + '</span>' +
+                    '<span>' + formatMoney(DELIVERY_FEE) + '</span>' +
                 '</div>' +
                 '<div class="summary-row total">' +
                     '<span class="label"><i class="fas fa-money-bill-wave"></i> Total</span>' +
-                    '<span>UGX ' + DELIVERY_FEE.toLocaleString() + '</span>' +
+                    '<span>' + formatMoney(DELIVERY_FEE) + '</span>' +
                 '</div>';
         }
         updateCheckoutButton(0);
@@ -1388,12 +1338,12 @@ function renderCart() {
         var itemTotal = item.price * item.quantity;
         subtotal += itemTotal;
         html += '<div class="cart-item">' +
-           '<span class="item-name">' + escapeHtml(item.name) + '</span>' +
+            '<span class="item-name">' + escapeHtml(item.name) + '</span>' +
             '<div style="display: flex; align-items: center; gap: 8px;">' +
                 '<button class="qty-btn minus-btn" onclick="updateCartQuantity(' + item.id + ', -1)">−</button>' +
                 '<span class="qty-display">' + item.quantity + '</span>' +
                 '<button class="qty-btn add-btn-qty" onclick="updateCartQuantity(' + item.id + ', 1)">+</button>' +
-                '<span class="item-price">UGX ' + itemTotal.toLocaleString() + '</span>' +
+                '<span class="item-price">' + formatMoney(itemTotal) + '</span>' +
             '</div>' +
         '</div>';
     });
@@ -1402,7 +1352,6 @@ function renderCart() {
     var baseDeliveryFee = getDeliveryFee();
     var isFreeDelivery = (baseDeliveryFee === 0 && DELIVERY_FEE > 0);
 
-    // Apply discount if present
     var discountAmount = 0;
     var actualDeliveryFee = baseDeliveryFee;
     var discountLine = '';
@@ -1410,14 +1359,12 @@ function renderCart() {
     if (appliedDiscount) {
         if (appliedDiscount.type === 'percent' || appliedDiscount.type === 'fixed') {
             discountAmount = appliedDiscount.amount;
-
-            // Guard: discount can't exceed subtotal
             if (discountAmount > subtotal) discountAmount = subtotal;
 
             discountLine =
                 '<div class="summary-row" style="color:#8e44ad;font-weight:600;">' +
                     '<span class="label"><i class="fas fa-tag"></i> ' + escapeHtml(appliedDiscount.code) + ' (' + escapeHtml(appliedDiscount.label) + ')</span>' +
-                    '<span>− UGX ' + discountAmount.toLocaleString() + '</span>' +
+                    '<span>− ' + formatMoney(discountAmount) + '</span>' +
                 '</div>';
         } else if (appliedDiscount.type === 'free_delivery') {
             actualDeliveryFee = 0;
@@ -1427,18 +1374,15 @@ function renderCart() {
     var grandTotal = subtotal + actualDeliveryFee - discountAmount;
     if (grandTotal < 0) grandTotal = 0;
 
-    // Summary card
     var summaryCard = document.getElementById('summaryCard');
     if (summaryCard) {
         var deliveryHtml = (actualDeliveryFee === 0 && DELIVERY_FEE > 0)
             ? '<span style="color:#27ae60;font-weight:700;">FREE 🎉</span>'
-            : 'UGX ' + actualDeliveryFee.toLocaleString();
+            : formatMoney(actualDeliveryFee);
 
-        var firstOrderBannerHtml = (isFreeDelivery && appliedDiscount && appliedDiscount.type === 'free_delivery')
+        var firstOrderBannerHtml = isFreeDelivery
             ? '<div style="background:linear-gradient(135deg,#27ae60,#1e8449);color:white;padding:10px 14px;border-radius:10px;margin-bottom:12px;font-size:0.85em;font-weight:600;text-align:center;">🎉 First order — free delivery on us!</div>'
-            : (isFreeDelivery
-                ? '<div style="background:linear-gradient(135deg,#27ae60,#1e8449);color:white;padding:10px 14px;border-radius:10px;margin-bottom:12px;font-size:0.85em;font-weight:600;text-align:center;">🎉 First order — free delivery on us!</div>'
-                : '');
+            : '';
 
         summaryCard.innerHTML =
             '<div class="checkout-card-header summary">' +
@@ -1447,7 +1391,7 @@ function renderCart() {
             firstOrderBannerHtml +
             '<div class="summary-row">' +
                 '<span class="label"><i class="fas fa-box"></i> Subtotal</span>' +
-                '<span>UGX ' + subtotal.toLocaleString() + '</span>' +
+                '<span>' + formatMoney(subtotal) + '</span>' +
             '</div>' +
             discountLine +
             '<div class="summary-row">' +
@@ -1456,11 +1400,10 @@ function renderCart() {
             '</div>' +
             '<div class="summary-row total">' +
                 '<span class="label"><i class="fas fa-money-bill-wave"></i> Total</span>' +
-                '<span>UGX ' + grandTotal.toLocaleString() + '</span>' +
+                '<span>' + formatMoney(grandTotal) + '</span>' +
             '</div>';
     }
 
-    // Show/hide remove button when a discount is applied
     var msg = document.getElementById('discountMessage');
     if (msg && appliedDiscount) {
         var existingRemove = msg.querySelector('.discount-remove');
@@ -1491,12 +1434,11 @@ function updateCheckoutButton(subtotal) {
         btn.style.boxShadow = 'none';
         btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Cart is empty';
     } else if (subtotal < MIN_ORDER) {
-        var remaining = (MIN_ORDER - subtotal).toLocaleString();
         btn.disabled = true;
         btn.style.background = '#95a5a6';
         btn.style.cursor = 'not-allowed';
         btn.style.boxShadow = 'none';
-        btn.innerHTML = '<i class="fas fa-info-circle"></i> Add UGX ' + remaining + ' more to order';
+        btn.innerHTML = '<i class="fas fa-info-circle"></i> Add ' + formatMoney(MIN_ORDER - subtotal) + ' more to order';
     } else {
         btn.disabled = false;
         btn.style.background = 'linear-gradient(135deg, #27ae60 0%, #1e8449 100%)';
@@ -1510,7 +1452,7 @@ function updateCheckoutButton(subtotal) {
 // MENU
 // ============================================================
 function loadMenuFromStorage() {
-    fetch(API + '/menu')
+    fetch(withRestaurant(API + '/menu'))
         .then(function(response) { return response.json(); })
         .then(function(data) {
             console.log('✅ Menu loaded:', data.length);
@@ -1529,7 +1471,7 @@ function loadMenuFromStorage() {
                         items: []
                     };
                 }
-                               categories[item.category].items.push({
+                categories[item.category].items.push({
                     id: item.id,
                     name: item.name,
                     desc: item.description,
@@ -1604,7 +1546,7 @@ function renderMenu() {
         var existing = cart.find(function(i) { return i.id === item.id; });
         var qty = existing ? existing.quantity : 0;
 
-                var popularBadge = item.is_popular
+        var popularBadge = item.is_popular
             ? '<div style="position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#f39c12,#e67e22);color:white;padding:4px 10px;border-radius:20px;font-size:0.7em;font-weight:700;box-shadow:0 2px 8px rgba(243,156,18,0.5);z-index:2;">🔥 BEST SELLER</div>'
             : '';
 
@@ -1614,9 +1556,9 @@ function renderMenu() {
             '<img src="' + (item.image || 'https://via.placeholder.com/100') + '" alt="' + item.name + '" class="item-image" onerror="this.src=\'https://via.placeholder.com/100?text=🍽️\'">' +
             '<div class="item-details">' +
                 '<h3>' + escapeHtml(catIcon + ' ' + item.name) + '</h3>' +
-'<div class="desc">' + escapeHtml(item.desc) + '</div>' +
+                '<div class="desc">' + escapeHtml(item.desc) + '</div>' +
                 '<div class="price-row">' +
-                    '<div class="price">UGX ' + item.price.toLocaleString() + '</div>' +
+                    '<div class="price">' + formatMoney(item.price) + '</div>' +
                     '<div class="item-actions">' +
                         '<button class="qty-btn minus-btn" onclick="updateQuantity(' + item.id + ', -1)" style="display:' + (qty === 0 ? 'none' : 'inline-flex') + '">−</button>' +
                         '<span class="qty-display" id="qty-' + item.id + '" style="display:' + (qty === 0 ? 'none' : 'inline-block') + '">' + qty + '</span>' +
@@ -1657,10 +1599,9 @@ function updateQuantity(id, change) {
     if (minusBtn) {
         minusBtn.style.display = newQuantity > 0 ? 'inline-flex' : 'none';
     }
-        saveCart();
+    saveCart();
     renderCart();
 
-    // Upsell logic — suggest a drink when adding a main item
     if (change > 0 && newQuantity === 1) {
         var itemCategory = null;
         menuCategories.forEach(function(cat) {
@@ -1693,7 +1634,7 @@ function showUpsell(item) {
         '<div style="font-size:2em;flex-shrink:0;">🥤</div>' +
         '<div style="flex:1;min-width:0;">' +
             '<div style="font-weight:700;color:#2c3e50;font-size:0.9em;margin-bottom:2px;">Add a ' + escapeHtml(item.name) + '?</div>' +
-            '<div style="color:#7f8c8d;font-size:0.78em;">Just UGX ' + item.price.toLocaleString() + '</div>' +
+            '<div style="color:#7f8c8d;font-size:0.78em;">Just ' + formatMoney(item.price) + '</div>' +
         '</div>' +
         '<button onclick="addUpsellItem(' + item.id + ')" style="background:#27ae60;color:white;border:none;padding:8px 16px;border-radius:20px;font-weight:600;cursor:pointer;font-size:0.85em;flex-shrink:0;">Add</button>' +
         '<button onclick="this.parentElement.remove()" style="background:none;border:none;color:#95a5a6;font-size:1.3em;cursor:pointer;padding:0 4px;flex-shrink:0;line-height:1;">×</button>';
@@ -1766,7 +1707,7 @@ function customerLogin() {
     var phone = normalizePhone(rawPhone, loginCc);
     console.log('📱 Login phone:', rawPhone, '+', loginCc, '→', phone);
 
-    fetch(API + '/customers/lookup?phone=' + encodeURIComponent(phone))
+    fetch(withRestaurant(API + '/customers/lookup?phone=' + encodeURIComponent(phone)))
         .then(function(response) {
             if (response.status === 404) {
                 errorEl.textContent = '❌ No account found. Please create one.';
@@ -1777,7 +1718,7 @@ function customerLogin() {
         })
         .then(function(customer) {
             if (!customer) return;
-                        localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
+            localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
             localStorage.setItem('harvestLastPhone', customer.phone);
             showCustomerWelcome(customer);
             prefillCustomerDetails(customer);
@@ -1810,7 +1751,7 @@ function customerRegister() {
     if (!phone) { errorEl.textContent = '❌ Please enter your phone number.'; return; }
     if (!address) { errorEl.textContent = '❌ Please enter your address.'; return; }
 
-    fetch(API + '/customers', {
+    fetch(withRestaurant(API + '/customers'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, phone: phone, address: address })
@@ -1819,7 +1760,7 @@ function customerRegister() {
     .then(function(data) {
         if (data.error) { errorEl.textContent = '❌ ' + data.error; return; }
         var customer = { name: name, phone: phone, address: address };
-                localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
+        localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
         localStorage.setItem('harvestLastPhone', phone);
         showCustomerWelcome(customer);
         prefillCustomerDetails(customer);
@@ -1880,13 +1821,10 @@ function checkCustomerLogin() {
         document.getElementById('customerLoginSection').style.display = 'none';
     }
 }
+
 // ============================================================
 // DISCOUNT CODES
 // ============================================================
-// Current applied discount state:
-// { code, type, value, amount, label }  OR null
-var appliedDiscount = null;
-
 function applyDiscount() {
     var input = document.getElementById('discountInput');
     var msg = document.getElementById('discountMessage');
@@ -1913,7 +1851,7 @@ function applyDiscount() {
     msg.textContent = '';
     msg.className = '';
 
-    fetch(API + '/discount/validate', {
+    fetch(withRestaurant(API + '/discount/validate'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: code, subtotal: subtotal })
@@ -1944,17 +1882,17 @@ function applyDiscount() {
                 label: d.value + '% off'
             };
             msg.className = 'success';
-            msg.textContent = '✅ ' + d.code + ' applied — ' + d.value + '% off (UGX ' + d.discount.toLocaleString() + ' saved)';
+            msg.textContent = '✅ ' + d.code + ' applied — ' + d.value + '% off (' + formatMoney(d.discount) + ' saved)';
         } else if (d.type === 'fixed') {
             appliedDiscount = {
                 code: d.code,
                 type: 'fixed',
                 value: d.value,
                 amount: d.discount,
-                label: 'UGX ' + d.value.toLocaleString() + ' off'
+                label: formatMoney(d.value) + ' off'
             };
             msg.className = 'success';
-            msg.textContent = '✅ ' + d.code + ' applied — UGX ' + d.discount.toLocaleString() + ' off';
+            msg.textContent = '✅ ' + d.code + ' applied — ' + formatMoney(d.discount) + ' off';
         } else if (d.type === 'free_delivery') {
             appliedDiscount = {
                 code: d.code,
@@ -1987,7 +1925,7 @@ function removeDiscount() {
 }
 
 // ============================================================
-// CHECKOUT / VERIFICATION
+// CHECKOUT
 // ============================================================
 function checkout() {
     var customer = JSON.parse(localStorage.getItem('harvestCurrentCustomer'));
@@ -2002,15 +1940,15 @@ function checkout() {
         return;
     }
 
-      if (cart.length === 0) {
+    if (cart.length === 0) {
         showToast('🛒 Your cart is empty — add some items first');
         return;
     }
 
     var currentSubtotal = 0;
     cart.forEach(function(i) { currentSubtotal += i.price * i.quantity; });
-     if (currentSubtotal < MIN_ORDER) {
-        showToast('⚠️ Minimum order is UGX ' + MIN_ORDER.toLocaleString() + ' — add UGX ' + (MIN_ORDER - currentSubtotal).toLocaleString() + ' more');
+    if (currentSubtotal < MIN_ORDER) {
+        showToast('⚠️ Minimum order is ' + formatMoney(MIN_ORDER) + ' — add ' + formatMoney(MIN_ORDER - currentSubtotal) + ' more');
         return;
     }
 
@@ -2021,20 +1959,18 @@ function checkout() {
     var address = document.getElementById('deliveryAddress').value.trim();
     var payment = document.getElementById('paymentMethod').value;
 
-    // Normalize phone to +CCXXXXXXXX format
     var phone = normalizePhone(phoneNumber, countryCode);
     console.log('📱 Checkout phone:', phoneNumber, '+', countryCode, '→', phone);
 
-        if (!name) { showToast('👤 Please enter your full name'); return; }
-        if (!phoneNumber) { showToast('📱 Please enter your phone number'); return; }
-        if (!address) { showToast('📍 Please enter your delivery address'); return; }
+    if (!name) { showToast('👤 Please enter your full name'); return; }
+    if (!phoneNumber) { showToast('📱 Please enter your phone number'); return; }
+    if (!address) { showToast('📍 Please enter your delivery address'); return; }
 
-    // Show the confirmation popup
     showPhoneConfirmation(name, phone, address, payment);
 }
 
 // ============================================================
-// PHONE CONFIRMATION (replaces the old OTP flow)
+// PHONE CONFIRMATION
 // ============================================================
 function showPhoneConfirmation(name, phone, address, payment) {
     var overlay = document.createElement('div');
@@ -2043,18 +1979,15 @@ function showPhoneConfirmation(name, phone, address, payment) {
 
     overlay.innerHTML =
         '<div style="background:white;border-radius:20px;padding:32px 26px;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:bounceIn 0.4s;position:relative;">' +
-
             '<div style="font-size:3em;margin-bottom:12px;">📱</div>' +
             '<h2 style="color:#2c3e50;margin-bottom:10px;font-size:1.3em;font-weight:700;">Confirm Your Number</h2>' +
             '<p style="color:#7f8c8d;font-size:0.9em;line-height:1.5;margin-bottom:20px;">' +
                 'We will call you on this number<br>when the driver is nearby.' +
             '</p>' +
-
             '<div style="background:#f8f9fa;border:2px dashed #3498db;border-radius:12px;padding:16px;margin-bottom:22px;">' +
                 '<div style="color:#7f8c8d;font-size:0.75em;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Phone Number</div>' +
                 '<div style="font-size:1.35em;font-weight:700;color:#2c3e50;word-break:break-all;" id="confirmPhoneDisplay">' + escapeHtml(phone) + '</div>' +
             '</div>' +
-
             '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">' +
                 '<button onclick="editPhoneNumber()" style="padding:14px;background:#ecf0f1;color:#2c3e50;border:none;border-radius:12px;font-weight:600;font-size:0.95em;cursor:pointer;">' +
                     '✏️ Edit' +
@@ -2063,26 +1996,20 @@ function showPhoneConfirmation(name, phone, address, payment) {
                     '✅ Yes, Place Order' +
                 '</button>' +
             '</div>' +
-
         '</div>';
 
     document.body.appendChild(overlay);
 }
 
 function editPhoneNumber() {
-    // Close the modal and focus on the phone field
     closePhoneConfirm();
     var phoneField = document.getElementById('customerPhone');
     if (phoneField) {
         phoneField.focus();
         phoneField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Briefly highlight the field
         phoneField.style.transition = 'box-shadow 0.3s';
         phoneField.style.boxShadow = '0 0 0 4px rgba(52, 152, 219, 0.4)';
-        setTimeout(function() {
-            phoneField.style.boxShadow = '';
-        }, 1500);
+        setTimeout(function() { phoneField.style.boxShadow = ''; }, 1500);
     }
 }
 
@@ -2092,30 +2019,26 @@ function closePhoneConfirm() {
 }
 
 function confirmPhoneAndOrder() {
-    // Gather all the order data fresh from the form
     var name = document.getElementById('customerName').value.trim();
     var rawPhone = document.getElementById('customerPhone').value.trim();
     var address = document.getElementById('deliveryAddress').value.trim();
     var payment = document.getElementById('paymentMethod').value;
 
-    // Use the country code the customer selected in the checkout form
     var countryCodeEl = document.getElementById('countryCode');
     var cc = countryCodeEl ? countryCodeEl.value : '+256';
     var phone = normalizePhone(rawPhone, cc);
     console.log('📱 Confirm phone:', rawPhone, '+', cc, '→', phone);
 
-    var phoneNumber = phone.replace(/\D/g, '');  // for validation below
+    var phoneNumber = phone.replace(/\D/g, '');
 
-    // Validate once more
     if (!name || !phoneNumber || !address) {
         closePhoneConfirm();
         showToast('⚠️ Something is missing — please check your details');
         return;
     }
 
-    // Close the confirmation and place the order
     closePhoneConfirm();
-        window.tempOrderData = { name: name, phone: phone, address: address, payment: payment };
+    window.tempOrderData = { name: name, phone: phone, address: address, payment: payment };
     localStorage.setItem('harvestLastPhone', phone);
     placeOrder();
 }
@@ -2133,10 +2056,9 @@ function placeOrder() {
     for (var i = 0; i < cart.length; i++) {
         var itemTotal = cart[i].price * cart[i].quantity;
         subtotal += itemTotal;
-        orderSummary += cart[i].quantity + 'x ' + cart[i].name + ' - UGX ' + itemTotal.toLocaleString() + '\n';
+        orderSummary += cart[i].quantity + 'x ' + cart[i].name + ' - ' + formatMoney(itemTotal) + '\n';
     }
 
-    // Calculate final amounts including any discount
     var baseDeliveryFee = getDeliveryFee();
     var actualDeliveryFee = baseDeliveryFee;
     var discountAmount = 0;
@@ -2150,7 +2072,7 @@ function placeOrder() {
         if (appliedDiscount.type === 'percent' || appliedDiscount.type === 'fixed') {
             discountAmount = appliedDiscount.amount;
             if (discountAmount > subtotal) discountAmount = subtotal;
-            orderSummary += '\nDiscount (' + discountCode + '): − UGX ' + discountAmount.toLocaleString() + '\n';
+            orderSummary += '\nDiscount (' + discountCode + '): − ' + formatMoney(discountAmount) + '\n';
         } else if (appliedDiscount.type === 'free_delivery') {
             actualDeliveryFee = 0;
             orderSummary += '\nFree delivery (' + discountCode + ')\n';
@@ -2160,31 +2082,27 @@ function placeOrder() {
     var grandTotal = subtotal + actualDeliveryFee - discountAmount;
     if (grandTotal < 0) grandTotal = 0;
 
-              var order = {
-                id: Date.now(),
-                date: new Date().toLocaleString(),
-                name: name, phone: phone, address: address, payment: payment,
-                items: JSON.parse(JSON.stringify(cart)),
-                subtotal: subtotal,
-                deliveryFee: actualDeliveryFee,
-                discountCode: discountCode,
-                discountAmount: discountAmount,
-                discountLabel: discountLabel,
-                total: grandTotal,
-                status: 'New',
-                latitude: window.tempCoordinates ? window.tempCoordinates.lat : null,
-                longitude: window.tempCoordinates ? window.tempCoordinates.lng : null
-            };
+    var order = {
+        id: Date.now(),
+        date: new Date().toLocaleString(),
+        name: name, phone: phone, address: address, payment: payment,
+        items: JSON.parse(JSON.stringify(cart)),
+        subtotal: subtotal,
+        deliveryFee: actualDeliveryFee,
+        discountCode: discountCode,
+        discountAmount: discountAmount,
+        discountLabel: discountLabel,
+        total: grandTotal,
+        status: 'New',
+        latitude: window.tempCoordinates ? window.tempCoordinates.lat : null,
+        longitude: window.tempCoordinates ? window.tempCoordinates.lng : null
+    };
 
-             // Send the order to the server
-            submitOrder(order, name, phone, address, payment, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount);
+    submitOrder(order, name, phone, address, payment, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount);
 }
 
-// ============================================================
-// SUBMIT ORDER (extracted for clarity)
-// ============================================================
 function submitOrder(order, name, phone, address, payment, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount) {
-    fetch(API + '/orders', {
+    fetch(withRestaurant(API + '/orders'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -2211,14 +2129,12 @@ function submitOrder(order, name, phone, address, payment, orderSummary, subtota
     .then(function(data) {
         console.log('✅ Order sent:', data);
 
-        // Commit locally
         var orders = JSON.parse(localStorage.getItem('harvestOrders')) || [];
         orders.unshift(order);
         localStorage.setItem('harvestOrders', JSON.stringify(orders));
 
-        // ⚡ Mark the discount code as used
         if (discountCode) {
-            fetch(API + '/discount/use', {
+            fetch(withRestaurant(API + '/discount/use'), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: discountCode })
@@ -2228,25 +2144,19 @@ function submitOrder(order, name, phone, address, payment, orderSummary, subtota
             .catch(function(e) { console.warn('Could not mark code as used:', e); });
         }
 
-        // Clear cart and discount
         cart = [];
         appliedDiscount = null;
         localStorage.removeItem('harvestCart');
         renderCart();
 
-        // Track the order
         if (data && data.orderId) startTrackingOrder(data.orderId);
 
-        // Re-check first-order status (now that server marked used)
         setTimeout(checkFirstOrderStatus, 1000);
 
-        // Show confirmation
         showOrderConfirmation(name, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount);
-
-        // Send email
         sendOrderEmail(name, phone, address, payment, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount);
     })
-      .catch(function(error) {
+    .catch(function(error) {
         console.error('❌ Order error:', error);
         showConfirm({
             title: 'Could not place order',
@@ -2261,7 +2171,7 @@ function submitOrder(order, name, phone, address, payment, orderSummary, subtota
 }
 
 // ============================================================
-// SHOW ORDER CONFIRMATION
+// ORDER CONFIRMATION
 // ============================================================
 function showOrderConfirmation(name, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount) {
     var confirmation = document.createElement('div');
@@ -2270,53 +2180,44 @@ function showOrderConfirmation(name, orderSummary, subtotal, actualDeliveryFee, 
 
     var discountHtml = '';
     if (discountCode && discountAmount > 0) {
-        discountHtml = '<p style="font-size:0.85em;color:#8e44ad;margin-top:6px;font-weight:600;">🏷️ ' + escapeHtml(discountCode) + ': − UGX ' + discountAmount.toLocaleString() + '</p>';
+        discountHtml = '<p style="font-size:0.85em;color:#8e44ad;margin-top:6px;font-weight:600;">🏷️ ' + escapeHtml(discountCode) + ': − ' + formatMoney(discountAmount) + '</p>';
     }
 
     confirmation.innerHTML =
         '<div style="background:white;border-radius:20px;padding:24px 22px;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:bounceIn 0.5s;display:flex;flex-direction:column;max-height:90vh;overflow:hidden;">' +
-
-            // Scrollable content area
             '<div style="overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;padding-right:4px;">' +
-
                 '<div style="font-size:3em;margin-bottom:8px;">✅</div>' +
                 '<h2 style="color:#27ae60;margin-bottom:6px;font-size:1.35em;">Order Confirmed!</h2>' +
                 '<p style="color:#555;margin-bottom:16px;font-size:0.9em;">Thank you, <strong>' + escapeHtml(name) + '</strong>!<br>Your order has been received.</p>' +
-
                 '<div style="background:#f8f9fa;border-radius:10px;padding:14px;text-align:left;margin-bottom:16px;">' +
                     '<p style="font-size:0.82em;color:#7f8c8d;margin-bottom:6px;">📦 Order Summary</p>' +
                     '<p style="font-size:0.88em;color:#2c3e50;line-height:1.5;word-break:break-word;">' + orderSummary.replace(/\n/g, '<br>') + '</p>' +
                     '<div style="border-top:1px dashed #ccc;margin-top:10px;padding-top:8px;">' +
-                        '<p style="font-size:0.85em;color:#7f8c8d;">Subtotal: UGX ' + (subtotal + discountAmount).toLocaleString() + '</p>' +
+                        '<p style="font-size:0.85em;color:#7f8c8d;">Subtotal: ' + formatMoney(subtotal + discountAmount) + '</p>' +
                         discountHtml +
-                        '<p style="font-size:0.85em;color:#7f8c8d;margin-top:6px;">🚚 Delivery Fee: ' + (actualDeliveryFee === 0 ? '<span style="color:#27ae60;font-weight:700;">FREE 🎉</span>' : 'UGX ' + actualDeliveryFee.toLocaleString()) + '</p>' +
-                        '<p style="font-weight:bold;margin-top:10px;color:#27ae60;font-size:1.1em;">Total: UGX ' + grandTotal.toLocaleString() + '</p>' +
+                        '<p style="font-size:0.85em;color:#7f8c8d;margin-top:6px;">🚚 Delivery Fee: ' + (actualDeliveryFee === 0 ? '<span style="color:#27ae60;font-weight:700;">FREE 🎉</span>' : formatMoney(actualDeliveryFee)) + '</p>' +
+                        '<p style="font-weight:bold;margin-top:10px;color:#27ae60;font-size:1.1em;">Total: ' + formatMoney(grandTotal) + '</p>' +
                     '</div>' +
                 '</div>' +
-
                 '<p style="color:#7f8c8d;font-size:0.82em;margin-bottom:4px;">We will confirm your order shortly.</p>' +
             '</div>' +
-
-            // Sticky button at bottom (always visible)
             '<div style="padding-top:14px;border-top:1px solid #eee;margin-top:4px;">' +
                 '<button onclick="closeConfirmation()" style="background:#3498db;color:white;border:none;padding:12px 40px;border-radius:30px;font-size:1em;font-weight:bold;cursor:pointer;width:100%;max-width:220px;">OK</button>' +
             '</div>' +
-
         '</div>';
-            document.body.appendChild(confirmation);
 
-    // Tap outside the modal to close
+    document.body.appendChild(confirmation);
+
     confirmation.addEventListener('click', function(e) {
-        if (e.target === confirmation) {
-            closeConfirmation();
-        }
+        if (e.target === confirmation) closeConfirmation();
     });
 }
+
 // ============================================================
 // SEND ORDER EMAIL
 // ============================================================
 function sendOrderEmail(name, phone, address, payment, orderSummary, subtotal, actualDeliveryFee, grandTotal, discountCode, discountAmount) {
-    fetch(API + '/orders/send-email', {
+    fetch(withRestaurant(API + '/orders/send-email'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -2355,6 +2256,7 @@ function closeConfirmation() {
         console.warn('closeConfirmation cleanup:', e);
     }
 }
+
 // ============================================================
 // ORDER TRACKING
 // ============================================================
@@ -2373,14 +2275,13 @@ function startTrackingOrder(orderId) {
 function fetchOrderStatus() {
     if (!currentTrackingOrderId) return;
 
-    fetch(API + '/orders/' + currentTrackingOrderId + '/status')
+    fetch(withRestaurant(API + '/orders/' + currentTrackingOrderId + '/status'))
         .then(function(res) { return res.json(); })
         .then(function(data) {
             updateTrackingUI(data.status);
 
-            // If On the Way, also fetch the ETA
             if (data.status === 'On the Way') {
-                fetch(API + '/orders/' + currentTrackingOrderId + '/eta')
+                fetch(withRestaurant(API + '/orders/' + currentTrackingOrderId + '/eta'))
                     .then(function(r) { return r.json(); })
                     .then(function(eta) {
                         var msg = document.getElementById('statusMessage');
@@ -2445,7 +2346,6 @@ function shareLocation() {
                 var lat = position.coords.latitude;
                 var lng = position.coords.longitude;
 
-                // 🆕 Save coordinates for the driver
                 window.tempCoordinates = { lat: lat, lng: lng };
                 console.log('📍 Coordinates saved:', window.tempCoordinates);
 
@@ -2464,6 +2364,7 @@ function shareLocation() {
         status.style.color = '#e74c3c';
     }
 }
+
 // ============================================================
 // BOTTOM NAV
 // ============================================================
@@ -2506,7 +2407,7 @@ function showOrderHistory() {
     overlay.id = 'orderHistoryModal';
     overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:flex-end;justify-content:center;z-index:9999;';
 
-       var html = '<div style="background:white;border-radius:20px 20px 0 0;width:100%;max-width:600px;max-height:85vh;display:flex;flex-direction:column;animation:slideUp 0.3s ease;">' +
+    var html = '<div style="background:white;border-radius:20px 20px 0 0;width:100%;max-width:600px;max-height:85vh;display:flex;flex-direction:column;animation:slideUp 0.3s ease;">' +
         '<div style="padding:20px;border-bottom:1px solid #ecf0f1;display:flex;justify-content:space-between;align-items:center;">' +
             '<h2 style="margin:0;font-size:1.2em;color:#2c3e50;">📋 Your Orders</h2>' +
             '<div style="display:flex;align-items:center;gap:10px;">' +
@@ -2520,7 +2421,7 @@ function showOrderHistory() {
 
     orders.slice(0, 20).forEach(function(order) {
         var date = order.date || 'Unknown date';
-        var total = (order.total || 0).toLocaleString();
+        var total = formatMoney(order.total || 0);
         var statusColor = {
             'New': '#3498db', 'Confirmed': '#27ae60', 'Preparing': '#f39c12',
             'On the Way': '#9b59b6', 'Delivered': '#2ecc71', 'Cancelled': '#e74c3c'
@@ -2539,7 +2440,7 @@ function showOrderHistory() {
                 ((order.items || []).length > 3 ? ' +' + (order.items.length - 3) + ' more' : '') +
             '</div>' +
             '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">' +
-                '<strong style="color:#27ae60;">UGX ' + total + '</strong>' +
+                '<strong style="color:#27ae60;">' + total + '</strong>' +
                 (order.status === 'Delivered' ? '<button onclick="reorder(' + JSON.stringify(order).replace(/"/g, '&quot;') + ')" style="background:#3498db;color:white;border:none;padding:6px 14px;border-radius:20px;font-size:0.8em;font-weight:600;cursor:pointer;">🔁 Reorder</button>' : '') +
             '</div>' +
         '</div>';
@@ -2549,9 +2450,7 @@ function showOrderHistory() {
     overlay.innerHTML = html;
     document.body.appendChild(overlay);
 }
-// ============================================================
-// CLEAR ORDER HISTORY (local only)
-// ============================================================
+
 function clearOrderHistory() {
     var orders = JSON.parse(localStorage.getItem('harvestOrders')) || [];
     if (orders.length === 0) {
@@ -2567,21 +2466,16 @@ function clearOrderHistory() {
         cancelText: 'Keep History'
     }).then(function(confirmed) {
         if (!confirmed) return;
-
         localStorage.removeItem('harvestOrders');
         localStorage.removeItem('harvestTrackingOrderId');
-
-        // Also hide the "Order your usual?" banner since it references past orders
         var banner = document.getElementById('repeatOrderBanner');
         if (banner) banner.style.display = 'none';
-
-        // Close the order history modal
         var modal = document.getElementById('orderHistoryModal');
         if (modal) modal.remove();
-
         showToast('✅ Order history cleared');
     });
 }
+
 function reorder(orderJson) {
     showConfirm({
         title: 'Add items again?',
@@ -2632,27 +2526,25 @@ function initAutocomplete() {
     if (!input) return;
     try {
         var autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ['geocode', 'establishment'],
-            componentRestrictions: { country: 'ug' }
+            types: ['geocode', 'establishment']
         });
-       autocomplete.addListener('place_changed', function() {
-    var place = autocomplete.getPlace();
-    if (place.formatted_address) {
-        input.value = place.formatted_address;
-        var status = document.getElementById('locationStatus');
-        status.textContent = '✅ Address selected: ' + place.formatted_address;
-        status.style.color = '#27ae60';
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (place.formatted_address) {
+                input.value = place.formatted_address;
+                var status = document.getElementById('locationStatus');
+                status.textContent = '✅ Address selected: ' + place.formatted_address;
+                status.style.color = '#27ae60';
 
-        // 🆕 Save coordinates for the driver
-        if (place.geometry && place.geometry.location) {
-            window.tempCoordinates = {
-                lat: place.geometry.location.lat(),
-                lng: place.geometry.location.lng()
-            };
-            console.log('📍 Coordinates saved:', window.tempCoordinates);
-        }
-    }
-});
+                if (place.geometry && place.geometry.location) {
+                    window.tempCoordinates = {
+                        lat: place.geometry.location.lat(),
+                        lng: place.geometry.location.lng()
+                    };
+                    console.log('📍 Coordinates saved:', window.tempCoordinates);
+                }
+            }
+        });
     } catch (e) {
         console.log('Google Places error:', e);
     }
@@ -2683,7 +2575,6 @@ function checkRepeatOrder() {
         return;
     }
 
-    // Don't show if the last order was less than 1 hour ago
     var orderTime = last.id || Date.now();
     if (Date.now() - orderTime < 3600000) {
         banner.style.display = 'none';
@@ -2708,56 +2599,42 @@ function repeatLastOrder() {
     var last = orders[0];
     if (!last.items || last.items.length === 0) return;
 
-    // Check current cart is empty first
-    if (cart.length > 0) {
-      showConfirm({
-    title: 'Replace your cart?',
-    message: 'Your cart has items. They will be cleared and replaced with your last order.',
-    iconClass: 'fa-redo',
-    iconVariant: 'neutral',
-    confirmStyle: 'primary',
-    confirmText: 'Replace',
-    cancelText: 'Keep Current'
-}).then(function(confirmed) {
-    if (!confirmed) return;
-    cart = [];
-    last.items.forEach(function(item) {
-        cart.push({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity
-        });
-    });
-    saveCart();
-    renderCart();
-    showToast('✅ ' + last.items.length + ' item(s) added to cart');
-    document.getElementById('repeatOrderBanner').style.display = 'none';
-    setTimeout(scrollToCart, 300);
-});
+    function addItems() {
         cart = [];
+        last.items.forEach(function(item) {
+            cart.push({
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity
+            });
+        });
+        saveCart();
+        renderCart();
+        showToast('✅ ' + last.items.length + ' item(s) added to cart');
+        document.getElementById('repeatOrderBanner').style.display = 'none';
+        setTimeout(scrollToCart, 300);
     }
 
-    last.items.forEach(function(item) {
-        cart.push({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity
+    if (cart.length > 0) {
+        showConfirm({
+            title: 'Replace your cart?',
+            message: 'Your cart has items. They will be cleared and replaced with your last order.',
+            iconClass: 'fa-redo',
+            iconVariant: 'neutral',
+            confirmStyle: 'primary',
+            confirmText: 'Replace',
+            cancelText: 'Keep Current'
+        }).then(function(confirmed) {
+            if (confirmed) addItems();
         });
-    });
-
-    saveCart();
-    renderCart();
-    showToast('✅ ' + last.items.length + ' item(s) added to cart');
-
-    // Hide the banner and scroll to cart
-    document.getElementById('repeatOrderBanner').style.display = 'none';
-    setTimeout(scrollToCart, 300);
+    } else {
+        addItems();
+    }
 }
 
 // ============================================================
-// FIRST ORDER — FREE DELIVERY (server-checked + marketing banner)
+// FIRST ORDER — FREE DELIVERY
 // ============================================================
 function checkFirstOrderStatus() {
     if (!FREE_FIRST_DELIVERY) return;
@@ -2771,14 +2648,13 @@ function checkFirstOrderStatus() {
         ? customer.phone
         : (localStorage.getItem('harvestLastPhone') || null);
 
-    // No phone known yet — show the generic marketing banner
     if (!phoneToCheck) {
         isFirstOrderServer = false;
         updateFirstOrderBanner('anonymous');
         return;
     }
 
-    fetch(API + '/customers/' + encodeURIComponent(phoneToCheck) + '/first-order')
+    fetch(withRestaurant(API + '/customers/' + encodeURIComponent(phoneToCheck) + '/first-order'))
         .then(function(res) { return res.json(); })
         .then(function(data) {
             isFirstOrderServer = !!data.is_first_order;
@@ -2793,7 +2669,6 @@ function checkFirstOrderStatus() {
         });
 }
 
-// state: 'anonymous' | 'eligible' | 'used'
 function updateFirstOrderBanner(state) {
     var banner = document.getElementById('firstOrderBanner');
     var titleEl = document.getElementById('firstOrderTitle');
@@ -2808,7 +2683,7 @@ function updateFirstOrderBanner(state) {
 
     if (state === 'anonymous') {
         titleEl.textContent = '🎉 New here? Free delivery on your first order!';
-        subtitleEl.textContent = 'Sign up now and save UGX 5,000 on your first meal.';
+        subtitleEl.textContent = 'Sign up now and save ' + formatMoney(DELIVERY_FEE) + ' on your first meal.';
         actionBtn.style.display = 'inline-flex';
         actionBtn.textContent = 'Sign Up';
     } else if (state === 'eligible') {
@@ -2820,9 +2695,7 @@ function updateFirstOrderBanner(state) {
     banner.style.display = 'flex';
 }
 
-// Called when someone taps the "Sign Up" button on the banner
 function firstOrderBannerAction() {
-    // Scroll to the login/register section
     var section = document.getElementById('customerLoginSection');
     if (!section) return;
 
@@ -2833,7 +2706,6 @@ function firstOrderBannerAction() {
 
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Focus on the name field after the scroll
     setTimeout(function() {
         var nameField = document.getElementById('custRegName');
         if (nameField) nameField.focus();
@@ -2844,6 +2716,38 @@ function getDeliveryFee() {
     if (FREE_FIRST_DELIVERY && isFirstOrderServer) return 0;
     return DELIVERY_FEE;
 }
+
+// ============================================================
+// RESTAURANT INFO — loads currency, name, fees from backend
+// ============================================================
+function loadRestaurantInfo() {
+    return fetch(withRestaurant(API + '/restaurant-info'))
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data || data.error) return;
+
+            if (data.currency) CURRENCY = data.currency;
+            if (data.delivery_fee != null) DELIVERY_FEE = parseFloat(data.delivery_fee);
+            if (data.min_order != null) MIN_ORDER = parseFloat(data.min_order);
+
+            var h1 = document.getElementById('headerName');
+            if (h1 && data.name) h1.textContent = data.name;
+
+            document.title = data.name || document.title;
+
+            // Update footer brand if present
+            var brandEl = document.querySelector('.footer .brand-name');
+            if (brandEl && data.name) brandEl.textContent = data.name;
+
+            // Update floating cart text (which used to include a hardcoded UGX)
+            var totalEl = document.getElementById('floatingCartTotal');
+            if (totalEl) totalEl.textContent = formatMoney(0);
+
+            renderCart();
+        })
+        .catch(function(err) { console.warn('restaurant-info failed:', err); });
+}
+
 // ============================================================
 // FORCE UPDATE CHECK
 // ============================================================
@@ -2903,29 +2807,24 @@ function forceReload() {
         }, 1500);
     });
 }
+
 // ============================================================
 // BOOT
 // ============================================================
 loadCart();
 checkCustomerLogin();
 
-// Show banner immediately based on what we know
-// (anonymous by default, or 'eligible'/'used' if customer known)
 var cachedCustomer = null;
 try {
     cachedCustomer = JSON.parse(localStorage.getItem('harvestCurrentCustomer'));
 } catch (e) {}
 
-if (cachedCustomer && cachedCustomer.phone) {
-    // We know who they are — will get proper state from server below
-    updateFirstOrderBanner('anonymous'); // show provisional, will update
-} else {
-    // Truly anonymous — show marketing banner right away
-    updateFirstOrderBanner('anonymous');
-}
+updateFirstOrderBanner('anonymous');
 
-loadMenuFromStorage();
-checkFirstOrderStatus();
+loadRestaurantInfo().then(function() {
+    loadMenuFromStorage();
+    checkFirstOrderStatus();
+});
 
 (function restoreTracking() {
     var savedOrderId = localStorage.getItem('harvestTrackingOrderId');
@@ -2934,12 +2833,12 @@ checkFirstOrderStatus();
 
 setTimeout(checkRepeatOrder, 800);
 
-// Re-check first-order status when the tab becomes visible
 document.addEventListener('visibilitychange', function() {
     if (!document.hidden) {
         checkFirstOrderStatus();
     }
 });
+
 // ============================================================
 // ADD TO HOME SCREEN
 // ============================================================
@@ -2967,7 +2866,6 @@ function showInstallBanner() {
     if (!banner) return;
     banner.style.display = 'flex';
 
-    // Adjust the button label based on the browser
     var btn = document.getElementById('installBtn');
     if (btn && isFirefox()) {
         btn.textContent = 'How to add';
@@ -2981,32 +2879,26 @@ function dismissInstall() {
 }
 
 function handleInstallClick() {
-    // Android/Chrome — native prompt is available
     if (deferredInstallPrompt) {
         deferredInstallPrompt.prompt();
         deferredInstallPrompt.userChoice.then(function(choice) {
-            if (choice.outcome === 'accepted') {
-                console.log('>>> installed');
-            }
+            if (choice.outcome === 'accepted') console.log('>>> installed');
             deferredInstallPrompt = null;
             dismissInstall();
         });
         return;
     }
 
-    // iOS — no native prompt; show instructions
     if (isIOS()) {
         alert('To install:\n\n1. Tap the Share button (□↑) at the bottom of Safari\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add"');
         return;
     }
 
-    // Firefox — no native prompt
     if (isFirefox()) {
         alert('To add to your home screen:\n\n1. Tap the ⋮ menu in Firefox\n2. Tap "Add app to Home screen"\n3. Tap "Add"');
         return;
     }
 
-    // Generic fallback
     alert('Open your browser menu and choose "Install app" or "Add to Home Screen".');
 }
 
@@ -3030,6 +2922,7 @@ setTimeout(function() {
         showInstallBanner();
     }
 }, 3000);
+
 // ============================================================
 // REMEMBER LAST COUNTRY CODE
 // ============================================================
@@ -3041,10 +2934,8 @@ setTimeout(function() {
         var el = document.getElementById(id);
         if (!el) return;
 
-        // Restore last-used code (defaults to Uganda if nothing saved)
         if (saved) el.value = saved;
 
-        // Save whenever it changes
         el.addEventListener('change', function() {
             localStorage.setItem('harvestLastCountryCode', el.value);
         });
@@ -3052,8 +2943,9 @@ setTimeout(function() {
 })();
 
 console.log('🚀 App loaded!');
+
 // ============================================================
-// SERVICE WORKER (required for Chrome install prompt)
+// SERVICE WORKER
 // ============================================================
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
