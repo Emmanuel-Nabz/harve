@@ -1553,7 +1553,7 @@ function renderMenu() {
         div.style.position = 'relative';
         div.innerHTML =
             popularBadge +
-            '<img src="' + (item.image || 'https://via.placeholder.com/100') + '" alt="' + item.name + '" class="item-image" onerror="this.src=\'https://via.placeholder.com/100?text=🍽️\'">' +
+            '<img src="' + (item.image || '') + '" alt="' + item.name + '" class="item-image" onerror="this.style.visibility=\'hidden\';">' +
             '<div class="item-details">' +
                 '<h3>' + escapeHtml(catIcon + ' ' + item.name) + '</h3>' +
                 '<div class="desc">' + escapeHtml(item.desc) + '</div>' +
