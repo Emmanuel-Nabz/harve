@@ -1463,10 +1463,25 @@ function loadMenuFromStorage() {
         .then(function(data) {
             console.log('✅ Menu loaded:', data.length);
 
-            var categoryIcons = {
-                'Burgers': '🍔', 'Pizzas': '🍕', 'Wraps': '🌯',
-                'Sides': '🍟', 'Drinks': '🥤', 'Desserts': '🍦'
-            };
+           var categoryIcons = {
+    'Main Dishes': '🍛',
+    'Breakfast': '🍳',
+    'Snacks': '🍟',
+    'Grills': '🍖',
+    'Sides': '🍚',
+    'Drinks': '🥤',
+    'Desserts': '🍰',
+    'Vegetarian': '🥗',
+    'Salads': '🥗',
+    'Fish': '🐟',
+    'Chicken': '🍗',
+    'Beef': '🥩',
+    'Burgers': '🍔',
+    'Pizzas': '🍕',
+    'Wraps': '🌯',
+    'Juices': '🧃',
+    'Coffee & Tea': '☕'
+};198821
             var categories = {};
 
             data.forEach(function(item) {
