@@ -1463,25 +1463,25 @@ function loadMenuFromStorage() {
         .then(function(data) {
             console.log('✅ Menu loaded:', data.length);
 
-           var categoryIcons = {
-    'Main Dishes': '🍛',
-    'Breakfast': '🍳',
-    'Snacks': '🍟',
-    'Grills': '🍖',
-    'Sides': '🍚',
-    'Drinks': '🥤',
-    'Desserts': '🍰',
-    'Vegetarian': '🥗',
-    'Salads': '🥗',
-    'Fish': '🐟',
-    'Chicken': '🍗',
-    'Beef': '🥩',
-    'Burgers': '🍔',
-    'Pizzas': '🍕',
-    'Wraps': '🌯',
-    'Juices': '🧃',
-    'Coffee & Tea': '☕'
-};198821
+                      var categoryIcons = {
+                'Main Dishes': '🍛',
+                'Breakfast': '🍳',
+                'Snacks': '🍟',
+                'Grills': '🍖',
+                'Sides': '🍚',
+                'Drinks': '🥤',
+                'Desserts': '🍰',
+                'Vegetarian': '🥗',
+                'Salads': '🥗',
+                'Fish': '🐟',
+                'Chicken': '🍗',
+                'Beef': '🥩',
+                'Burgers': '🍔',
+                'Pizzas': '🍕',
+                'Wraps': '🌯',
+                'Juices': '🧃',
+                'Coffee & Tea': '☕'
+            };
             var categories = {};
 
             data.forEach(function(item) {
@@ -1775,10 +1775,16 @@ function customerRegister() {
     if (!phone) { errorEl.textContent = '❌ Please enter your phone number.'; return; }
     if (!address) { errorEl.textContent = '❌ Please enter your address.'; return; }
 
-    fetch(withRestaurant(API + '/customers'), {
+       fetch(withRestaurant(API + '/customers'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, address: address })
+        body: JSON.stringify({
+            name: name,
+            phone: phone,
+            address: address,
+            latitude: window.tempSignupCoordinates ? window.tempSignupCoordinates.lat : null,
+            longitude: window.tempSignupCoordinates ? window.tempSignupCoordinates.lng : null
+        })
     })
     .then(function(response) { return response.json(); })
        .then(function(data) {
@@ -2627,41 +2633,67 @@ function showToast(msg, type) {
 // ============================================================
 // GOOGLE PLACES
 // ============================================================
-function initAutocomplete() {
-    var input = document.getElementById('deliveryAddress');
-    if (!input) return;
+// Attach Google Places autocomplete to any input by ID.
+// onPlaceSelected(place, input) is called after a place is picked.
+function attachAutocomplete(inputId, onPlaceSelected) {
+    var input = document.getElementById(inputId);
+    if (!input) return null;
     try {
         var autocomplete = new google.maps.places.Autocomplete(input, {
             types: ['geocode', 'establishment']
         });
         autocomplete.addListener('place_changed', function() {
             var place = autocomplete.getPlace();
-            if (place.formatted_address) {
+            if (place && place.formatted_address) {
                 input.value = place.formatted_address;
-                var status = document.getElementById('locationStatus');
-                status.textContent = '✅ Address selected: ' + place.formatted_address;
-                status.style.color = '#27ae60';
-
-                if (place.geometry && place.geometry.location) {
-                    window.tempCoordinates = {
-                        lat: place.geometry.location.lat(),
-                        lng: place.geometry.location.lng()
-                    };
-                    console.log('📍 Coordinates saved:', window.tempCoordinates);
+                if (typeof onPlaceSelected === 'function') {
+                    onPlaceSelected(place, input);
                 }
             }
         });
+        return autocomplete;
     } catch (e) {
-        console.log('Google Places error:', e);
+        console.log('Google Places error for ' + inputId + ':', e);
+        return null;
     }
+}
+
+function initAutocomplete() {
+    // 1) Checkout delivery address — saves to window.tempCoordinates
+    attachAutocomplete('deliveryAddress', function(place) {
+        var status = document.getElementById('locationStatus');
+        if (status) {
+            status.textContent = '✅ Address selected: ' + place.formatted_address;
+            status.style.color = '#27ae60';
+        }
+        if (place.geometry && place.geometry.location) {
+            window.tempCoordinates = {
+                lat: place.geometry.location.lat(),
+                lng: place.geometry.location.lng()
+            };
+            console.log('📍 Checkout coords:', window.tempCoordinates);
+        }
+    });
+
+    // 2) Signup address — saves to window.tempSignupCoordinates
+    attachAutocomplete('custRegAddress', function(place) {
+        if (place.geometry && place.geometry.location) {
+            window.tempSignupCoordinates = {
+                lat: place.geometry.location.lat(),
+                lng: place.geometry.location.lng()
+            };
+            console.log('📍 Signup coords:', window.tempSignupCoordinates);
+        }
+    });
 }
 
 function gm_authFailure() {
     var status = document.getElementById('locationStatus');
-    status.textContent = '⚠️ Address search unavailable. Please enter address manually.';
-    status.style.color = '#e74c3c';
+    if (status) {
+        status.textContent = '⚠️ Address search unavailable. Please enter address manually.';
+        status.style.color = '#e74c3c';
+    }
 }
-
 // ============================================================
 // REPEAT LAST ORDER
 // ============================================================
