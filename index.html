@@ -792,6 +792,22 @@
             display: none !important;
             pointer-events: none !important;
         }
+        /* ===== KILL BROKEN GOOGLE PLACES OVERLAYS ===== */
+        .pac-container {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        /* When autocomplete actually works, we re-enable it via JS */
+        body.gm-working .pac-container {
+            display: block !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            width: auto !important;
+            height: auto !important;
+        }
 
         /* ===== GOOGLE PLACES AUTOCOMPLETE (override) ===== */
         .pac-container {
@@ -2878,12 +2894,15 @@ function attachAutocomplete(inputId, onPlaceSelected) {
 }
 
 function initAutocomplete() {
+    // ─── ALWAYS run the cleanup first, even if Google never loads ───
+    cleanGoogleOverlays();
+
     if (!window.google || !google.maps || !google.maps.places) {
         console.warn('Google Places not available — autocomplete disabled');
         return;
     }
 
-    // 1) Checkout delivery address — saves to window.tempCoordinates
+    // 1) Checkout delivery address
     if (!checkoutAutocomplete) {
         checkoutAutocomplete = attachAutocomplete('deliveryAddress', function(place) {
             var status = document.getElementById('locationStatus');
@@ -2901,7 +2920,7 @@ function initAutocomplete() {
         });
     }
 
-    // 2) Signup address — saves to window.tempSignupCoordinates AND seeds checkout
+    // 2) Signup address
     if (!signupAutocomplete) {
         signupAutocomplete = attachAutocomplete('custRegAddress', function(place) {
             if (place.geometry && place.geometry.location) {
@@ -2911,7 +2930,6 @@ function initAutocomplete() {
                 };
                 console.log('📍 Signup coords:', window.tempSignupCoordinates);
 
-                // Seed the checkout address + coords so they're used at order time
                 var deliveryField = document.getElementById('deliveryAddress');
                 if (deliveryField && !deliveryField.value) {
                     deliveryField.value = place.formatted_address;
@@ -2927,6 +2945,27 @@ function initAutocomplete() {
     }
 }
 
+// ============================================================
+// NUCLEAR CLEANUP — kills any broken Google overlay that blocks input
+// ============================================================
+function cleanGoogleOverlays() {
+    // Remove every .pac-container Google may have injected anywhere
+    document.querySelectorAll('.pac-container, .pac-icon, .pac-item').forEach(function(el) {
+        el.remove();
+    });
+
+    // Force the address inputs to be fully interactive
+    ['custRegAddress', 'deliveryAddress'].forEach(function(id) {
+        var input = document.getElementById(id);
+        if (!input) return;
+        input.style.position = 'relative';
+        input.style.zIndex = '99999';
+        input.style.pointerEvents = 'auto';
+        input.style.background = '#fff';
+        input.removeAttribute('readonly');
+        input.removeAttribute('disabled');
+    });
+}
 function gm_authFailure() {
     console.warn('Google Maps auth failed — disabling autocomplete overlays');
 
@@ -3371,6 +3410,36 @@ setTimeout(function() {
             localStorage.setItem('harvestLastCountryCode', el.value);
         });
     });
+})();
+// ============================================================
+// GOOGLE OVERLAY WATCHDOG — runs forever, kills broken overlays
+// ============================================================
+(function googleOverlayWatchdog() {
+    // Run cleanup immediately on boot
+    cleanGoogleOverlays();
+
+    // Re-run every time Google injects a new overlay (they appear on focus)
+    ['custRegAddress', 'deliveryAddress'].forEach(function(id) {
+        var input = document.getElementById(id);
+        if (!input) return;
+
+        input.addEventListener('focus', function() {
+            setTimeout(cleanGoogleOverlays, 50);
+            setTimeout(cleanGoogleOverlays, 300);
+            setTimeout(cleanGoogleOverlays, 1000);
+        });
+
+        input.addEventListener('click', function() {
+            setTimeout(cleanGoogleOverlays, 50);
+            setTimeout(cleanGoogleOverlays, 300);
+        });
+    });
+
+    // Also run after Google script has a chance to load
+    setTimeout(cleanGoogleOverlays, 500);
+    setTimeout(cleanGoogleOverlays, 1500);
+    setTimeout(cleanGoogleOverlays, 3000);
+    setTimeout(cleanGoogleOverlays, 6000);
 })();
 
 console.log('🚀 App loaded!');
