@@ -2534,17 +2534,33 @@ function hideTrackingBanner() {
 // ============================================================
 function shareLocation() {
     var status = document.getElementById('locationStatus');
-    status.textContent = '📍 Getting your location...';
+    var addressField = document.getElementById('deliveryAddress');
+
+    if (addressField) addressField.focus();
+
+    status.textContent = '📍 Getting your location…';
     status.style.color = '#3498db';
 
     if (!navigator.geolocation) {
-        status.textContent = '❌ Location not supported on this device.';
-        status.style.color = '#e74c3c';
+        status.innerHTML = '⚠️ Location not supported. Please <strong>type your address above</strong>.';
+        status.style.color = '#e67e22';
         return;
     }
 
+    var resolved = false;
+    var hardTimeout = setTimeout(function() {
+        if (resolved) return;
+        resolved = true;
+        status.innerHTML = '⚠️ Location timed out. Please <strong>type your address above</strong>.';
+        status.style.color = '#e67e22';
+    }, 12000);
+
     navigator.geolocation.getCurrentPosition(
         function(position) {
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(hardTimeout);
+
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
 
@@ -2554,28 +2570,36 @@ function shareLocation() {
             if (window.google && google.maps && google.maps.Geocoder) {
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({ location: { lat: lat, lng: lng } }, function(results, geoStatus) {
-                    var addressField = document.getElementById('deliveryAddress');
                     if (geoStatus === 'OK' && results && results[0]) {
                         addressField.value = results[0].formatted_address;
                         status.textContent = '✅ Address filled in automatically.';
+                        status.style.color = '#27ae60';
                     } else {
                         addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
-                        status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                        status.innerHTML = '⚠️ Address lookup unavailable. Coordinates filled — <strong>please add your street name</strong>.';
+                        status.style.color = '#e67e22';
                     }
-                    status.style.color = '#27ae60';
                 });
             } else {
-                var addressField = document.getElementById('deliveryAddress');
                 addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
-                status.textContent = '✅ Coordinates filled in. Please refine if needed.';
-                status.style.color = '#27ae60';
+                status.innerHTML = '⚠️ Address lookup unavailable. Coordinates filled — <strong>please add your street name</strong>.';
+                status.style.color = '#e67e22';
             }
         },
-        function() {
-            status.textContent = '❌ Could not get location. Please enter your address manually.';
-            status.style.color = '#e74c3c';
+        function(err) {
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(hardTimeout);
+
+            var msg = 'Could not get your location.';
+            if (err && err.code === 1) msg = 'Location permission denied.';
+            else if (err && err.code === 2) msg = 'Location unavailable.';
+            else if (err && err.code === 3) msg = 'Location request timed out.';
+
+            status.innerHTML = '⚠️ ' + msg + ' Please <strong>type your address above</strong>.';
+            status.style.color = '#e67e22';
         },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
 }
 
@@ -2584,17 +2608,40 @@ function shareLocation() {
 // ============================================================
 function shareSignupLocation() {
     var status = document.getElementById('signupLocationStatus');
-    status.textContent = '📍 Getting your location...';
+    var addressField = document.getElementById('custRegAddress');
+
+    // Clear any existing validation error first
+    var errEl = document.getElementById('custRegError');
+    if (errEl) errEl.textContent = '';
+
+    // Focus the address field so the user can start typing if GPS fails
+    if (addressField) addressField.focus();
+
+    status.textContent = '📍 Getting your location…';
     status.style.color = '#3498db';
 
     if (!navigator.geolocation) {
-        status.textContent = '❌ Location not supported on this device.';
-        status.style.color = '#e74c3c';
+        status.innerHTML = '⚠️ Location not supported. Please <strong>type your address above</strong>.';
+        status.style.color = '#e67e22';
         return;
     }
 
+    var resolved = false;
+
+    // Hard timeout in case the browser never fires either callback
+    var hardTimeout = setTimeout(function() {
+        if (resolved) return;
+        resolved = true;
+        status.innerHTML = '⚠️ Location timed out. Please <strong>type your address above</strong>.';
+        status.style.color = '#e67e22';
+    }, 12000);
+
     navigator.geolocation.getCurrentPosition(
         function(position) {
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(hardTimeout);
+
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
 
@@ -2604,31 +2651,38 @@ function shareSignupLocation() {
             if (window.google && google.maps && google.maps.Geocoder) {
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({ location: { lat: lat, lng: lng } }, function(results, geoStatus) {
-                    var addressField = document.getElementById('custRegAddress');
                     if (geoStatus === 'OK' && results && results[0]) {
                         addressField.value = results[0].formatted_address;
                         status.textContent = '✅ Address filled in automatically.';
+                        status.style.color = '#27ae60';
                     } else {
                         addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
-                        status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                        status.innerHTML = '⚠️ Address lookup unavailable. Coordinates filled — <strong>please add your street name</strong>.';
+                        status.style.color = '#e67e22';
                     }
-                    status.style.color = '#27ae60';
                 });
             } else {
-                var addressField = document.getElementById('custRegAddress');
                 addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
-                status.textContent = '✅ Coordinates filled in. Please refine if needed.';
-                status.style.color = '#27ae60';
+                status.innerHTML = '⚠️ Address lookup unavailable. Coordinates filled — <strong>please add your street name</strong>.';
+                status.style.color = '#e67e22';
             }
         },
-        function() {
-            status.textContent = '❌ Could not get location. Please enter your address manually.';
-            status.style.color = '#e74c3c';
+        function(err) {
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(hardTimeout);
+
+            var msg = 'Could not get your location.';
+            if (err && err.code === 1) msg = 'Location permission denied.';
+            else if (err && err.code === 2) msg = 'Location unavailable.';
+            else if (err && err.code === 3) msg = 'Location request timed out.';
+
+            status.innerHTML = '⚠️ ' + msg + ' Please <strong>type your address above</strong>.';
+            status.style.color = '#e67e22';
         },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
 }
-
 // ============================================================
 // BOTTOM NAV
 // ============================================================
@@ -3124,7 +3178,25 @@ function forceReload() {
         }, 1500);
     });
 }
-
+// ============================================================
+// LIVE-CLEAR VALIDATION ERRORS
+// ============================================================
+(function attachLiveErrorClear() {
+    var pairs = [
+        { input: 'custRegName',     error: 'custRegError' },
+        { input: 'custRegPhone',    error: 'custRegError' },
+        { input: 'custRegAddress',  error: 'custRegError' },
+        { input: 'custLoginPhone',  error: 'custLoginError' }
+    ];
+    pairs.forEach(function(p) {
+        var el = document.getElementById(p.input);
+        var err = document.getElementById(p.error);
+        if (!el || !err) return;
+        el.addEventListener('input', function() {
+            if (err.textContent) err.textContent = '';
+        });
+    });
+})();
 // ============================================================
 // BOOT
 // ============================================================
