@@ -1873,9 +1873,20 @@ function customerRegister() {
             longitude: window.tempSignupCoordinates ? window.tempSignupCoordinates.lng : null
         })
     })
-    .then(function(response) { return response.json(); })
+      .then(function(response) { return response.json(); })
     .then(function(data) {
         if (data.error) { errorEl.textContent = '❌ ' + data.error; return; }
+
+        // Copy signup coords → checkout coords BEFORE clearing
+        if (window.tempSignupCoordinates) {
+            window.tempCoordinates = {
+                lat: window.tempSignupCoordinates.lat,
+                lng: window.tempSignupCoordinates.lng
+            };
+        }
+        // Clear signup coords so next visit starts fresh
+        window.tempSignupCoordinates = null;
+
         var customer = { name: name, phone: phone, address: address };
         localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
         localStorage.setItem('harvestLastPhone', phone);
@@ -1912,7 +1923,12 @@ function showCustomerWelcome(customer) {
 
 function prefillCustomerDetails(customer) {
     document.getElementById('customerName').value = customer.name || '';
-    document.getElementById('deliveryAddress').value = customer.address || '';
+
+    // Only prefill the address if the field is EMPTY — never overwrite user input
+    var addressField = document.getElementById('deliveryAddress');
+    if (addressField && !addressField.value.trim()) {
+        addressField.value = customer.address || '';
+    }
 
     var stored = customer.phone || '';
     var local = stored;
@@ -1956,6 +1972,17 @@ function customerLogout() {
         document.getElementById('customerName').value = '';
         document.getElementById('customerPhone').value = '';
         document.getElementById('deliveryAddress').value = '';
+
+        // Clear stale coords so next user/order starts fresh
+        window.tempCoordinates = null;
+        window.tempSignupCoordinates = null;
+        window.tempOrderData = null;
+
+        var locStatus = document.getElementById('locationStatus');
+        if (locStatus) locStatus.textContent = '';
+        var signupStatus = document.getElementById('signupLocationStatus');
+        if (signupStatus) signupStatus.textContent = '';
+
         isFirstOrderServer = false;
         checkFirstOrderStatus();
     });
@@ -2471,9 +2498,18 @@ function closeConfirmation() {
     try {
         cart = [];
         localStorage.removeItem('harvestCart');
+
+        // Clear all coordinate/temp data
         window.tempCoordinates = null;
         window.tempOrderData = null;
         window.tempSignupCoordinates = null;
+
+        // Also clear the status messages so next Locate tap starts fresh
+        var locStatus = document.getElementById('locationStatus');
+        if (locStatus) locStatus.textContent = '';
+        var signupStatus = document.getElementById('signupLocationStatus');
+        if (signupStatus) signupStatus.textContent = '';
+
         renderMenu();
         renderCart();
     } catch (e) {
@@ -3274,8 +3310,32 @@ function forceReload() {
     });
 })();
 // ============================================================
+// CLEAR STALE COORDINATES WHEN USER TYPES
+// ============================================================
+(function clearCoordsOnInput() {
+    var checkoutAddress = document.getElementById('deliveryAddress');
+    if (checkoutAddress) {
+        checkoutAddress.addEventListener('input', function() {
+            // User is editing — drop any GPS coords from a previous Locate tap
+            window.tempCoordinates = null;
+        });
+    }
+
+    var signupAddress = document.getElementById('custRegAddress');
+    if (signupAddress) {
+        signupAddress.addEventListener('input', function() {
+            window.tempSignupCoordinates = null;
+        });
+    }
+})();
+// ============================================================
 // BOOT
 // ============================================================
+// Clear any stale coordinates from a previous session
+window.tempCoordinates = null;
+window.tempSignupCoordinates = null;
+window.tempOrderData = null;
+
 loadCart();
 checkCustomerLogin();
 
