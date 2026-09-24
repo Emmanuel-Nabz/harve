@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -88,20 +88,20 @@
             justify-content: center;
             align-items: center;
         }
-       .app-header h1 {
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2.8em;
-    opacity: 0.9;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: #ffffff;
-    margin-bottom: 8px;
-    text-shadow:
-        0 2px 6px rgba(0, 0, 0, 1),
-        0 4px 20px rgba(0, 0, 0, 0.9),
-        0 0 40px rgba(0, 0, 0, 0.6);
-    line-height: 1.1;
-}
+        .app-header h1 {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.8em;
+            opacity: 0.9;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow:
+                0 2px 6px rgba(0, 0, 0, 1),
+                0 4px 20px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(0, 0, 0, 0.6);
+            line-height: 1.1;
+        }
         .app-header p {
             color: #f6f9fd;
             font-size: 1em;
@@ -182,7 +182,7 @@
         .category-tab.active { background: #3498db; color: white; border-color: #3498db; }
 
         /* ===== MENU ITEM ===== */
-                .menu-item-large {
+        .menu-item-large {
             display: flex;
             background: white;
             border-radius: 14px;
@@ -199,7 +199,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
-                      .menu-item-large .item-image {
+        .menu-item-large .item-image {
             flex-shrink: 0;
             width: 120px;
             height: auto;
@@ -211,7 +211,7 @@
             display: block;
             margin: 0;
         }
-                .menu-item-large .item-details {
+        .menu-item-large .item-details {
             flex: 1;
             min-width: 0;
             padding: 12px 14px;
@@ -221,7 +221,6 @@
             gap: 3px;
             overflow: hidden;
         }
-        
         .menu-item-large .item-details h3 {
             font-size: 1em;
             font-weight: 700;
@@ -229,7 +228,7 @@
             margin-bottom: 3px;
             line-height: 1.2;
         }
-                      .menu-item-large .item-details .desc {
+        .menu-item-large .item-details .desc {
             font-size: 0.85em;
             color: #4a5568;
             line-height: 1.35;
@@ -240,7 +239,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-                  .menu-item-large .price-row {
+        .menu-item-large .price-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -253,13 +252,13 @@
             font-size: 1em;
             white-space: nowrap;
         }
-              .item-actions {
+        .item-actions {
             display: flex;
             align-items: center;
             gap: 6px;
             flex-shrink: 0;
         }
-               .qty-btn {
+        .qty-btn {
             width: 32px;
             height: 32px;
             border-radius: 50%;
@@ -275,7 +274,6 @@
             flex-shrink: 0;
             line-height: 1;
         }
-        
         .qty-btn:hover { transform: scale(1.08); }
         .qty-btn:active { transform: scale(0.92); }
         .add-btn-qty { background: #27ae60; color: white; }
@@ -775,6 +773,17 @@
             70% { transform: scale(1.02); }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        /* ===== GOOGLE PLACES AUTOCOMPLETE (override) ===== */
+        .pac-container {
+            z-index: 100000 !important;
+            border-radius: 10px;
+            margin-top: 4px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .pac-item { padding: 10px 12px; font-size: 0.9em; }
+        .pac-item-query { font-size: 1em; }
     </style>
 </head>
 <body>
@@ -788,6 +797,7 @@
     <button id="installBtn" onclick="handleInstallClick()" style="background:#e67e22;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;white-space:nowrap;">Install</button>
     <button onclick="dismissInstall()" style="background:transparent;color:#7f8c8d;border:none;font-size:1.3em;cursor:pointer;padding:4px 8px;line-height:1;">&times;</button>
 </div>
+
 <!-- ===== WELCOME BANNER ===== -->
 <div id="customerWelcome">
     <span id="welcomeName"></span>
@@ -796,10 +806,11 @@
 
 <!-- ===== HEADER ===== -->
 <div class="app-header">
-       <img src="logo.png" alt="Harvest" style="width:100px;height:90px;border-radius:24px;margin:0 auto 16px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+    <img src="logo.png" alt="Harvest" style="width:100px;height:90px;border-radius:24px;margin:0 auto 16px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
     <h1 id="headerName">Harvest</h1>
     <p id="headerTagline">Order your favorite food online — delivered to your door!</p>
 </div>
+
 <!-- ===== CUSTOMER LOGIN SECTION ===== -->
 <div id="customerLoginSection">
     <div id="loginPrompt">
@@ -859,7 +870,13 @@
         </div>
         <div class="form-group">
             <label><i class="fas fa-map-pin"></i> Delivery Address</label>
-            <input type="text" id="custRegAddress" class="input-field" placeholder="Enter address">
+            <div class="address-row">
+                <input type="text" id="custRegAddress" class="input-field" placeholder="Start typing your address..." autocomplete="off">
+                <button type="button" onclick="shareSignupLocation()" class="location-btn">
+                    <i class="fas fa-location-dot"></i> Locate
+                </button>
+            </div>
+            <div id="signupLocationStatus" class="location-status"></div>
         </div>
         <div class="login-buttons">
             <button class="btn-signup" onclick="customerRegister()">Create Account</button>
@@ -873,6 +890,7 @@
         <div id="custRegError" style="color: #e74c3c; margin-top: 10px;"></div>
     </div>
 </div>
+
 <!-- ===== FIRST ORDER FREE DELIVERY BANNER ===== -->
 <div id="firstOrderBanner" style="display:none; background: linear-gradient(135deg, #27ae60, #1e8449); color: white; padding: 12px 16px; border-radius: 12px; margin-bottom: 15px; align-items: center; gap: 12px; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);">
     <div style="font-size:1.6em;flex-shrink:0;">🎉</div>
@@ -882,6 +900,7 @@
     </div>
     <button id="firstOrderActionBtn" onclick="firstOrderBannerAction()" style="background: white; color: #27ae60; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; font-size: 0.82em; white-space: nowrap; display: none;">Sign Up</button>
 </div>
+
 <!-- ===== REPEAT LAST ORDER BANNER ===== -->
 <div id="repeatOrderBanner" style="display:none; background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 14px 18px; border-radius: 12px; margin-bottom: 15px; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); gap: 12px; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 180px;">
@@ -933,6 +952,7 @@
             <span id="grandTotal">—</span>
         </div>
     </div>
+
     <!-- CARD: Discount Code -->
     <div class="discount-card" id="discountCard">
         <div class="discount-card-header">
@@ -974,8 +994,8 @@
         <div class="form-group">
             <label><i class="fas fa-map-pin"></i> Delivery Address</label>
             <div class="address-row">
-                <input type="text" id="deliveryAddress" class="input-field" placeholder="Start typing your address...">
-                <button onclick="shareLocation()" class="location-btn">
+                <input type="text" id="deliveryAddress" class="input-field" placeholder="Start typing your address..." autocomplete="off">
+                <button type="button" onclick="shareLocation()" class="location-btn">
                     <i class="fas fa-location-dot"></i> Share
                 </button>
             </div>
@@ -1069,16 +1089,12 @@ var APP_VERSION = '1.0.0';
 
 // ============================================================
 // RESTAURANT CONTEXT
-// The API is at api.nabztech.com, so it can't see our subdomain.
-// We tell it explicitly which restaurant this page is for.
 // ============================================================
 function getRestaurantSlug() {
-    // 1) ?restaurant=... in the URL (manual override)
     var params = new URLSearchParams(window.location.search);
     var fromUrl = params.get('restaurant');
     if (fromUrl) return fromUrl;
 
-    // 2) Subdomain (harvest.nabztech.com → "harvest")
     var host = window.location.hostname.toLowerCase();
     var parts = host.split('.');
     var reserved = ['api', 'admin', 'driver', 'order', 'www', 'customer', 'localhost'];
@@ -1091,7 +1107,6 @@ function getRestaurantSlug() {
 var RESTAURANT_SLUG = getRestaurantSlug();
 console.log('🏪 Restaurant slug:', RESTAURANT_SLUG);
 
-// Append ?restaurant=<slug> (or &restaurant=...) to any URL
 function withRestaurant(url) {
     if (!RESTAURANT_SLUG) return url;
     var sep = url.indexOf('?') === -1 ? '?' : '&';
@@ -1099,9 +1114,9 @@ function withRestaurant(url) {
 }
 
 // ============================================================
-// MONEY FORMATTING (dynamic currency)
+// MONEY FORMATTING
 // ============================================================
-var CURRENCY = 'UGX';   // will be overwritten by /restaurant-info on boot
+var CURRENCY = 'UGX';
 
 function formatMoney(amount) {
     var n = parseFloat(amount) || 0;
@@ -1117,7 +1132,7 @@ function formatMoney(amount) {
 }
 
 // ============================================================
-// DEFAULTS (overwritten once /restaurant-info loads)
+// DEFAULTS
 // ============================================================
 var DELIVERY_FEE = 5000;
 var MIN_ORDER = 30000;
@@ -1127,10 +1142,14 @@ var currentCategory = 'All';
 var cart = [];
 var menuCategories = [];
 var trackingInterval = null;
+var trackingPolls = 0;
 var currentTrackingOrderId = null;
 var pendingCheckout = false;
 var appliedDiscount = null;
-var notificationsEnabled = false;
+
+// Google Places autocomplete instances
+var checkoutAutocomplete = null;
+var signupAutocomplete = null;
 
 // ============================================================
 // PASSWORD EYE TOGGLE
@@ -1257,6 +1276,22 @@ function showConfirm(options) {
 }
 
 // ============================================================
+// TOAST
+// ============================================================
+function showToast(msg, type) {
+    var bg = '#2c3e50';
+    if (type === 'warn') bg = '#e67e22';
+    if (type === 'error') bg = '#e74c3c';
+    if (type === 'success') bg = '#27ae60';
+
+    var t = document.createElement('div');
+    t.textContent = msg;
+    t.style.cssText = 'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:' + bg + ';color:white;padding:12px 20px;border-radius:24px;font-weight:600;z-index:99999;box-shadow:0 8px 25px rgba(0,0,0,0.3);max-width:90%;text-align:center;';
+    document.body.appendChild(t);
+    setTimeout(function() { t.remove(); }, 2500);
+}
+
+// ============================================================
 // CART
 // ============================================================
 function loadCart() {
@@ -1281,7 +1316,9 @@ function clearCart() {
     }).then(function(confirmed) {
         if (!confirmed) return;
         cart = [];
+        appliedDiscount = null;
         saveCart();
+        renderMenu();
         renderCart();
     });
 }
@@ -1306,7 +1343,7 @@ function renderCart() {
             var runningTotal = 0;
             cart.forEach(function(i) { runningTotal += i.price * i.quantity; });
             document.getElementById('floatingCartCount').textContent = totalItems;
-            document.getElementById('floatingCartTotal').textContent = formatMoney(runningTotal + DELIVERY_FEE);
+            document.getElementById('floatingCartTotal').textContent = formatMoney(runningTotal + getDeliveryFee());
             floatingCart.style.display = 'flex';
         } else {
             floatingCart.style.display = 'none';
@@ -1363,10 +1400,18 @@ function renderCart() {
     var discountLine = '';
 
     if (appliedDiscount) {
-        if (appliedDiscount.type === 'percent' || appliedDiscount.type === 'fixed') {
-            discountAmount = appliedDiscount.amount;
+        if (appliedDiscount.type === 'percent') {
+            discountAmount = Math.round(subtotal * (appliedDiscount.value / 100));
             if (discountAmount > subtotal) discountAmount = subtotal;
-
+            appliedDiscount.amount = discountAmount;
+            discountLine =
+                '<div class="summary-row" style="color:#8e44ad;font-weight:600;">' +
+                    '<span class="label"><i class="fas fa-tag"></i> ' + escapeHtml(appliedDiscount.code) + ' (' + escapeHtml(appliedDiscount.label) + ')</span>' +
+                    '<span>− ' + formatMoney(discountAmount) + '</span>' +
+                '</div>';
+        } else if (appliedDiscount.type === 'fixed') {
+            discountAmount = Math.min(appliedDiscount.value, subtotal);
+            appliedDiscount.amount = discountAmount;
             discountLine =
                 '<div class="summary-row" style="color:#8e44ad;font-weight:600;">' +
                     '<span class="label"><i class="fas fa-tag"></i> ' + escapeHtml(appliedDiscount.code) + ' (' + escapeHtml(appliedDiscount.label) + ')</span>' +
@@ -1463,7 +1508,7 @@ function loadMenuFromStorage() {
         .then(function(data) {
             console.log('✅ Menu loaded:', data.length);
 
-                      var categoryIcons = {
+            var categoryIcons = {
                 'Main Dishes': '🍛',
                 'Breakfast': '🍳',
                 'Snacks': '🍟',
@@ -1574,7 +1619,7 @@ function renderMenu() {
         div.style.position = 'relative';
         div.innerHTML =
             popularBadge +
-            '<img src="' + (item.image || '') + '" alt="' + item.name + '" class="item-image" onerror="this.style.visibility=\'hidden\';">' +
+            '<img src="' + (item.image || '') + '" alt="' + escapeHtml(item.name) + '" class="item-image" onerror="this.style.visibility=\'hidden\';">' +
             '<div class="item-details">' +
                 '<h3>' + escapeHtml(catIcon + ' ' + item.name) + '</h3>' +
                 '<div class="desc">' + escapeHtml(item.desc) + '</div>' +
@@ -1668,7 +1713,7 @@ function addUpsellItem(id) {
     var el = document.getElementById('upsellBanner');
     if (el) el.remove();
     updateQuantity(id, 1);
-    showToast('Added to cart ✅');
+    showToast('Added to cart ✅', 'success');
 }
 
 function updateCartQuantity(id, change) {
@@ -1708,6 +1753,14 @@ function showCustomerRegister() {
     document.getElementById('loginPrompt').style.display = 'none';
     document.getElementById('customerLoginForm').style.display = 'none';
     document.getElementById('customerRegisterForm').style.display = 'block';
+
+    // Re-attach Google Places autocomplete once the input is visible.
+    // Some browsers (iOS Safari) refuse to autocomplete hidden inputs.
+    setTimeout(function() {
+        if (window.google && google.maps && google.maps.places && !signupAutocomplete) {
+            initAutocomplete();
+        }
+    }, 120);
 }
 
 function hideCustomerLogin() {
@@ -1737,14 +1790,13 @@ function customerLogin() {
             if (!response.ok) throw new Error('Server error ' + response.status);
             return response.json();
         })
-              .then(function(customer) {
+        .then(function(customer) {
             if (!customer) return;
             localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
             localStorage.setItem('harvestLastPhone', customer.phone);
             showCustomerWelcome(customer);
             prefillCustomerDetails(customer);
 
-            // ⚡ Re-check first-order status
             checkFirstOrderStatus();
 
             if (pendingCheckout) {
@@ -1775,7 +1827,7 @@ function customerRegister() {
     if (!phone) { errorEl.textContent = '❌ Please enter your phone number.'; return; }
     if (!address) { errorEl.textContent = '❌ Please enter your address.'; return; }
 
-       fetch(withRestaurant(API + '/customers'), {
+    fetch(withRestaurant(API + '/customers'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1787,7 +1839,7 @@ function customerRegister() {
         })
     })
     .then(function(response) { return response.json(); })
-       .then(function(data) {
+    .then(function(data) {
         if (data.error) { errorEl.textContent = '❌ ' + data.error; return; }
         var customer = { name: name, phone: phone, address: address };
         localStorage.setItem('harvestCurrentCustomer', JSON.stringify(customer));
@@ -1795,13 +1847,14 @@ function customerRegister() {
         showCustomerWelcome(customer);
         prefillCustomerDetails(customer);
 
-        // ⚡ Re-check first-order status now that we know who they are
         checkFirstOrderStatus();
 
         if (pendingCheckout) {
             pendingCheckout = false;
             setTimeout(checkout, 100);
         }
+
+        showToast('✅ Account created!', 'success');
     })
     .catch(function(error) {
         console.error('Register error:', error);
@@ -1817,16 +1870,37 @@ function showCustomerWelcome(customer) {
     document.getElementById('customerWelcome').style.display = 'flex';
     document.getElementById('welcomeName').textContent = '👤 ' + customer.name;
 
-    // Re-check first-order status now that we know the phone
     if (customer && customer.phone) {
         checkFirstOrderStatus();
     }
 }
 
 function prefillCustomerDetails(customer) {
-    document.getElementById('customerName').value = customer.name;
-    document.getElementById('customerPhone').value = customer.phone;
-    document.getElementById('deliveryAddress').value = customer.address;
+    document.getElementById('customerName').value = customer.name || '';
+    document.getElementById('deliveryAddress').value = customer.address || '';
+
+    var stored = customer.phone || '';
+    var local = stored;
+    var cc = '+256';
+
+    var ccSelect = document.getElementById('countryCode');
+    var knownCodes = ['+256', '+973', '+971', '+966', '+44', '+1'];
+    if (stored.charAt(0) === '+') {
+        for (var i = 0; i < knownCodes.length; i++) {
+            if (stored.indexOf(knownCodes[i]) === 0) {
+                cc = knownCodes[i];
+                local = stored.slice(knownCodes[i].length);
+                break;
+            }
+        }
+        if (local === stored) {
+            var m = stored.match(/^\+(\d{1,3})(\d+)$/);
+            if (m) { cc = '+' + m[1]; local = m[2]; }
+        }
+    }
+
+    if (ccSelect) ccSelect.value = cc;
+    document.getElementById('customerPhone').value = local;
 }
 
 function customerLogout() {
@@ -1843,10 +1917,12 @@ function customerLogout() {
 
         localStorage.removeItem('harvestCurrentCustomer');
         document.getElementById('customerWelcome').style.display = 'none';
-        document.getElementById('customerLoginSection').style.display = 'none';
+        document.getElementById('customerLoginSection').style.display = 'block';
         document.getElementById('customerName').value = '';
         document.getElementById('customerPhone').value = '';
         document.getElementById('deliveryAddress').value = '';
+        isFirstOrderServer = false;
+        checkFirstOrderStatus();
     });
 }
 
@@ -1856,7 +1932,7 @@ function checkCustomerLogin() {
         showCustomerWelcome(customer);
         prefillCustomerDetails(customer);
     } else {
-        document.getElementById('customerLoginSection').style.display = 'none';
+        document.getElementById('customerLoginSection').style.display = 'block';
     }
 }
 
@@ -1966,20 +2042,18 @@ function removeDiscount() {
 // CHECKOUT
 // ============================================================
 function checkout() {
-    // 1) Basic cart checks
     if (cart.length === 0) {
-        showToast('🛒 Your cart is empty — add some items first');
+        showToast('🛒 Your cart is empty — add some items first', 'warn');
         return;
     }
 
     var currentSubtotal = 0;
     cart.forEach(function(i) { currentSubtotal += i.price * i.quantity; });
     if (currentSubtotal < MIN_ORDER) {
-        showToast('⚠️ Minimum order is ' + formatMoney(MIN_ORDER) + ' — add ' + formatMoney(MIN_ORDER - currentSubtotal) + ' more');
+        showToast('⚠️ Minimum order is ' + formatMoney(MIN_ORDER) + ' — add ' + formatMoney(MIN_ORDER - currentSubtotal) + ' more', 'warn');
         return;
     }
 
-    // 2) Read the details from the checkout form
     var name = document.getElementById('customerName').value.trim();
     var countryCodeElement = document.getElementById('countryCode');
     var countryCode = countryCodeElement ? countryCodeElement.value : '+256';
@@ -1990,24 +2064,20 @@ function checkout() {
     var phone = normalizePhone(phoneNumber, countryCode);
     console.log('📱 Checkout phone:', phoneNumber, '+', countryCode, '→', phone);
 
-    if (!name) { showToast('👤 Please enter your full name'); return; }
-    if (!phoneNumber) { showToast('📱 Please enter your phone number'); return; }
-    if (!address) { showToast('📍 Please enter your delivery address'); return; }
+    if (!name) { showToast('👤 Please enter your full name', 'warn'); return; }
+    if (!phoneNumber) { showToast('📱 Please enter your phone number', 'warn'); return; }
+    if (!address) { showToast('📍 Please enter your delivery address', 'warn'); return; }
 
-    // 3) Are they already logged in?
     var customer = null;
     try {
         customer = JSON.parse(localStorage.getItem('harvestCurrentCustomer'));
     } catch (e) {}
 
     if (customer) {
-        // Already logged in — proceed normally
         showPhoneConfirmation(name, phone, address, payment);
         return;
     }
 
-    // 4) Not logged in — auto-register with the details they just typed
-    //    Show a brief loading state, POST to /customers, then continue.
     var btn = document.querySelector('.checkout-cta');
     var originalBtnHtml = btn ? btn.innerHTML : '';
     if (btn) {
@@ -2018,7 +2088,13 @@ function checkout() {
     fetch(withRestaurant(API + '/customers'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, address: address })
+        body: JSON.stringify({
+            name: name,
+            phone: phone,
+            address: address,
+            latitude: window.tempCoordinates ? window.tempCoordinates.lat : null,
+            longitude: window.tempCoordinates ? window.tempCoordinates.lng : null
+        })
     })
     .then(function(res) {
         return res.json().then(function(d) { return { ok: res.ok, status: res.status, data: d }; });
@@ -2029,8 +2105,6 @@ function checkout() {
             btn.innerHTML = originalBtnHtml;
         }
 
-        // If the phone is already registered (409 or "already registered"),
-        // treat it as a login: fetch the existing customer and continue.
         var alreadyExists = false;
         if (result.status === 400 && result.data && result.data.error &&
             result.data.error.toLowerCase().indexOf('already') !== -1) {
@@ -2038,11 +2112,10 @@ function checkout() {
         }
 
         if (!result.ok && !alreadyExists) {
-            showToast('❌ ' + ((result.data && result.data.error) || 'Could not save your details'));
+            showToast('❌ ' + ((result.data && result.data.error) || 'Could not save your details'), 'error');
             return;
         }
 
-        // If already existed → look them up to get the proper customer record
         var finishFlow = function(cust) {
             localStorage.setItem('harvestCurrentCustomer', JSON.stringify(cust));
             localStorage.setItem('harvestLastPhone', cust.phone || phone);
@@ -2058,7 +2131,6 @@ function checkout() {
                     if (existing && !existing.error) {
                         finishFlow(existing);
                     } else {
-                        // Fallback — use what they typed
                         finishFlow({ name: name, phone: phone, address: address });
                     }
                 })
@@ -2075,7 +2147,7 @@ function checkout() {
             btn.disabled = false;
             btn.innerHTML = originalBtnHtml;
         }
-        showToast('❌ Network error — please try again');
+        showToast('❌ Network error — please try again', 'error');
     });
 }
 
@@ -2143,7 +2215,7 @@ function confirmPhoneAndOrder() {
 
     if (!name || !phoneNumber || !address) {
         closePhoneConfirm();
-        showToast('⚠️ Something is missing — please check your details');
+        showToast('⚠️ Something is missing — please check your details', 'warn');
         return;
     }
 
@@ -2179,9 +2251,12 @@ function placeOrder() {
         discountCode = appliedDiscount.code;
         discountLabel = appliedDiscount.label;
 
-        if (appliedDiscount.type === 'percent' || appliedDiscount.type === 'fixed') {
-            discountAmount = appliedDiscount.amount;
+        if (appliedDiscount.type === 'percent') {
+            discountAmount = Math.round(subtotal * (appliedDiscount.value / 100));
             if (discountAmount > subtotal) discountAmount = subtotal;
+            orderSummary += '\nDiscount (' + discountCode + '): − ' + formatMoney(discountAmount) + '\n';
+        } else if (appliedDiscount.type === 'fixed') {
+            discountAmount = Math.min(appliedDiscount.value, subtotal);
             orderSummary += '\nDiscount (' + discountCode + '): − ' + formatMoney(discountAmount) + '\n';
         } else if (appliedDiscount.type === 'free_delivery') {
             actualDeliveryFee = 0;
@@ -2254,10 +2329,10 @@ function submitOrder(order, name, phone, address, payment, orderSummary, subtota
             .catch(function(e) { console.warn('Could not mark code as used:', e); });
         }
 
-               cart = [];
+        cart = [];
         appliedDiscount = null;
         localStorage.removeItem('harvestCart');
-        renderMenu();      // ← re-render menu items to reset their qty displays
+        renderMenu();
         renderCart();
 
         if (data && data.orderId) startTrackingOrder(data.orderId);
@@ -2358,11 +2433,13 @@ function closeConfirmation() {
         if (el) el.remove();
     });
 
-      try {
+    try {
         cart = [];
         localStorage.removeItem('harvestCart');
         window.tempCoordinates = null;
-        renderMenu();      // ← reset menu items
+        window.tempOrderData = null;
+        window.tempSignupCoordinates = null;
+        renderMenu();
         renderCart();
     } catch (e) {
         console.warn('closeConfirmation cleanup:', e);
@@ -2374,6 +2451,7 @@ function closeConfirmation() {
 // ============================================================
 function startTrackingOrder(orderId) {
     currentTrackingOrderId = orderId;
+    trackingPolls = 0;
     localStorage.setItem('harvestTrackingOrderId', orderId);
     var section = document.getElementById('orderTrackingSection');
     if (section) section.style.display = 'block';
@@ -2410,6 +2488,8 @@ function fetchOrderStatus() {
 }
 
 function updateTrackingUI(status) {
+    trackingPolls++;
+
     var statusMessages = {
         'New': { icon: '🆕', text: 'Your order has been received!', color: '#3498db', bar: 10 },
         'Confirmed': { icon: '✅', text: 'Restaurant confirmed your order.', color: '#27ae60', bar: 30 },
@@ -2436,6 +2516,11 @@ function updateTrackingUI(status) {
             if (section) section.style.display = 'none';
         }, 8000);
     }
+
+    // Safety: stop polling after ~2 hours
+    if (trackingPolls > 1440) {
+        if (trackingInterval) { clearInterval(trackingInterval); trackingInterval = null; }
+    }
 }
 
 function hideTrackingBanner() {
@@ -2445,36 +2530,103 @@ function hideTrackingBanner() {
 }
 
 // ============================================================
-// SHARE LOCATION
+// SHARE LOCATION (checkout)
 // ============================================================
 function shareLocation() {
     var status = document.getElementById('locationStatus');
     status.textContent = '📍 Getting your location...';
     status.style.color = '#3498db';
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                var lat = position.coords.latitude;
-                var lng = position.coords.longitude;
-
-                window.tempCoordinates = { lat: lat, lng: lng };
-                console.log('📍 Coordinates saved:', window.tempCoordinates);
-
-                var mapsUrl = 'https://www.google.com/maps?q=' + lat + ',' + lng;
-                window.open(mapsUrl, '_blank');
-                status.textContent = '✅ Location opened in Google Maps. Copy the address and paste it above.';
-                status.style.color = '#27ae60';
-            },
-            function() {
-                status.textContent = '❌ Could not get location. Please enter your address manually.';
-                status.style.color = '#e74c3c';
-            }
-        );
-    } else {
+    if (!navigator.geolocation) {
         status.textContent = '❌ Location not supported on this device.';
         status.style.color = '#e74c3c';
+        return;
     }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            window.tempCoordinates = { lat: lat, lng: lng };
+            console.log('📍 Coordinates saved:', window.tempCoordinates);
+
+            if (window.google && google.maps && google.maps.Geocoder) {
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ location: { lat: lat, lng: lng } }, function(results, geoStatus) {
+                    var addressField = document.getElementById('deliveryAddress');
+                    if (geoStatus === 'OK' && results && results[0]) {
+                        addressField.value = results[0].formatted_address;
+                        status.textContent = '✅ Address filled in automatically.';
+                    } else {
+                        addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
+                        status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                    }
+                    status.style.color = '#27ae60';
+                });
+            } else {
+                var addressField = document.getElementById('deliveryAddress');
+                addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
+                status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                status.style.color = '#27ae60';
+            }
+        },
+        function() {
+            status.textContent = '❌ Could not get location. Please enter your address manually.';
+            status.style.color = '#e74c3c';
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+}
+
+// ============================================================
+// SHARE LOCATION (signup)
+// ============================================================
+function shareSignupLocation() {
+    var status = document.getElementById('signupLocationStatus');
+    status.textContent = '📍 Getting your location...';
+    status.style.color = '#3498db';
+
+    if (!navigator.geolocation) {
+        status.textContent = '❌ Location not supported on this device.';
+        status.style.color = '#e74c3c';
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            window.tempSignupCoordinates = { lat: lat, lng: lng };
+            console.log('📍 Signup coordinates saved:', window.tempSignupCoordinates);
+
+            if (window.google && google.maps && google.maps.Geocoder) {
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ location: { lat: lat, lng: lng } }, function(results, geoStatus) {
+                    var addressField = document.getElementById('custRegAddress');
+                    if (geoStatus === 'OK' && results && results[0]) {
+                        addressField.value = results[0].formatted_address;
+                        status.textContent = '✅ Address filled in automatically.';
+                    } else {
+                        addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
+                        status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                    }
+                    status.style.color = '#27ae60';
+                });
+            } else {
+                var addressField = document.getElementById('custRegAddress');
+                addressField.value = lat.toFixed(6) + ', ' + lng.toFixed(6);
+                status.textContent = '✅ Coordinates filled in. Please refine if needed.';
+                status.style.color = '#27ae60';
+            }
+        },
+        function() {
+            status.textContent = '❌ Could not get location. Please enter your address manually.';
+            status.style.color = '#e74c3c';
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
 }
 
 // ============================================================
@@ -2511,7 +2663,7 @@ function showOrderHistory() {
     var orders = JSON.parse(localStorage.getItem('harvestOrders')) || [];
 
     if (orders.length === 0) {
-        showToast('📋 No orders yet — place your first order!');
+        showToast('📋 No orders yet — place your first order!', 'warn');
         return;
     }
 
@@ -2531,7 +2683,7 @@ function showOrderHistory() {
         '</div>' +
         '<div style="overflow-y:auto;padding:15px;">';
 
-    orders.slice(0, 20).forEach(function(order) {
+    orders.slice(0, 20).forEach(function(order, i) {
         var date = order.date || 'Unknown date';
         var total = formatMoney(order.total || 0);
         var statusColor = {
@@ -2546,14 +2698,14 @@ function showOrderHistory() {
             '</div>' +
             '<div style="font-size:0.8em;color:#7f8c8d;margin-bottom:8px;">' + date + '</div>' +
             '<div style="font-size:0.85em;color:#555;margin-bottom:6px;">' +
-                (order.items || []).slice(0, 3).map(function(i) {
-                    return i.quantity + '× ' + i.name;
+                (order.items || []).slice(0, 3).map(function(it) {
+                    return it.quantity + '× ' + escapeHtml(it.name);
                 }).join(' · ') +
                 ((order.items || []).length > 3 ? ' +' + (order.items.length - 3) + ' more' : '') +
             '</div>' +
             '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">' +
                 '<strong style="color:#27ae60;">' + total + '</strong>' +
-                (order.status === 'Delivered' ? '<button onclick="reorder(' + JSON.stringify(order).replace(/"/g, '&quot;') + ')" style="background:#3498db;color:white;border:none;padding:6px 14px;border-radius:20px;font-size:0.8em;font-weight:600;cursor:pointer;">🔁 Reorder</button>' : '') +
+                (order.status === 'Delivered' ? '<button class="reorder-btn" data-reorder-index="' + i + '" style="background:#3498db;color:white;border:none;padding:6px 14px;border-radius:20px;font-size:0.8em;font-weight:600;cursor:pointer;">🔁 Reorder</button>' : '') +
             '</div>' +
         '</div>';
     });
@@ -2561,12 +2713,21 @@ function showOrderHistory() {
     html += '</div></div>';
     overlay.innerHTML = html;
     document.body.appendChild(overlay);
+
+    // Attach reorder handlers safely
+    overlay.querySelectorAll('.reorder-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var idx = parseInt(btn.getAttribute('data-reorder-index'), 10);
+            var allOrders = JSON.parse(localStorage.getItem('harvestOrders')) || [];
+            if (allOrders[idx]) reorder(allOrders[idx]);
+        });
+    });
 }
 
 function clearOrderHistory() {
     var orders = JSON.parse(localStorage.getItem('harvestOrders')) || [];
     if (orders.length === 0) {
-        showToast('📋 No history to clear');
+        showToast('📋 No history to clear', 'warn');
         return;
     }
 
@@ -2584,7 +2745,10 @@ function clearOrderHistory() {
         if (banner) banner.style.display = 'none';
         var modal = document.getElementById('orderHistoryModal');
         if (modal) modal.remove();
-        showToast('✅ Order history cleared');
+        var tracking = document.getElementById('orderTrackingSection');
+        if (tracking) tracking.style.display = 'none';
+        if (trackingInterval) { clearInterval(trackingInterval); trackingInterval = null; }
+        showToast('✅ Order history cleared', 'success');
     });
 }
 
@@ -2612,65 +2776,26 @@ function reorder(orderJson) {
         renderCart();
         var modal = document.getElementById('orderHistoryModal');
         if (modal) modal.remove();
-        showToast('✅ Items added to cart');
+        showToast('✅ Items added to cart', 'success');
         scrollToCart();
     });
 }
 
-function showToast(msg, type) {
-    var bg = '#2c3e50';
-    if (type === 'warn') bg = '#e67e22';
-    if (type === 'error') bg = '#e74c3c';
-    if (type === 'success') bg = '#27ae60';
-
-    var t = document.createElement('div');
-    t.textContent = msg;
-    t.style.cssText = 'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:' + bg + ';color:white;padding:12px 20px;border-radius:24px;font-weight:600;z-index:99999;box-shadow:0 8px 25px rgba(0,0,0,0.3);';
-    document.body.appendChild(t);
-    setTimeout(function() { t.remove(); }, 2500);
-}
-
 // ============================================================
-// GOOGLE PLACES
+// GOOGLE PLACES AUTOCOMPLETE
 // ============================================================
-// Attach Google Places autocomplete to any input by ID.
-// onPlaceSelected(place, input) is called after a place is picked.
 function attachAutocomplete(inputId, onPlaceSelected) {
     var input = document.getElementById(inputId);
     if (!input) return null;
     try {
         var autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ['geocode', 'establishment']
+            types: ['geocode', 'establishment'],
+            fields: ['formatted_address', 'geometry', 'name']
         });
         autocomplete.addListener('place_changed', function() {
             var place = autocomplete.getPlace();
-            if (place && place.formatted_address) {
-                input.value = place.formatted_address;
-                if (typeof onPlaceSelected === 'function') {
-                    onPlaceSelected(place, input);
-                }
-            }
-        });
-        return autocomplete;
-    } catch (e) {
-        console.log('Google Places error for ' + inputId + ':', e);
-        return null;
-    }
-}
-
-// Attach Google Places autocomplete to any input by ID.
-// onPlaceSelected(place, input) is called after a place is picked.
-function attachAutocomplete(inputId, onPlaceSelected) {
-    var input = document.getElementById(inputId);
-    if (!input) return null;
-    try {
-        var autocomplete = new google.maps.places.Autocomplete(input, {
-            types: ['geocode', 'establishment']
-        });
-        autocomplete.addListener('place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (place && place.formatted_address) {
-                input.value = place.formatted_address;
+            if (place && (place.formatted_address || place.name)) {
+                input.value = place.formatted_address || place.name;
                 if (typeof onPlaceSelected === 'function') {
                     onPlaceSelected(place, input);
                 }
@@ -2684,49 +2809,68 @@ function attachAutocomplete(inputId, onPlaceSelected) {
 }
 
 function initAutocomplete() {
+    if (!window.google || !google.maps || !google.maps.places) {
+        console.warn('Google Places not available — autocomplete disabled');
+        return;
+    }
+
     // 1) Checkout delivery address — saves to window.tempCoordinates
-    attachAutocomplete('deliveryAddress', function(place) {
-        var status = document.getElementById('locationStatus');
-        if (status) {
-            status.textContent = '✅ Address selected: ' + place.formatted_address;
-            status.style.color = '#27ae60';
-        }
-        if (place.geometry && place.geometry.location) {
-            window.tempCoordinates = {
-                lat: place.geometry.location.lat(),
-                lng: place.geometry.location.lng()
-            };
-            console.log('📍 Checkout coords:', window.tempCoordinates);
-        }
-    });
+    if (!checkoutAutocomplete) {
+        checkoutAutocomplete = attachAutocomplete('deliveryAddress', function(place) {
+            var status = document.getElementById('locationStatus');
+            if (status) {
+                status.textContent = '✅ Address selected: ' + place.formatted_address;
+                status.style.color = '#27ae60';
+            }
+            if (place.geometry && place.geometry.location) {
+                window.tempCoordinates = {
+                    lat: place.geometry.location.lat(),
+                    lng: place.geometry.location.lng()
+                };
+                console.log('📍 Checkout coords:', window.tempCoordinates);
+            }
+        });
+    }
 
-    // 2) Signup address — saves to window.tempSignupCoordinates
-    attachAutocomplete('custRegAddress', function(place) {
-        if (place.geometry && place.geometry.location) {
-            window.tempSignupCoordinates = {
-                lat: place.geometry.location.lat(),
-                lng: place.geometry.location.lng()
-            };
-            console.log('📍 Signup coords:', window.tempSignupCoordinates);
-        }
-    });
-}
+    // 2) Signup address — saves to window.tempSignupCoordinates AND seeds checkout
+    if (!signupAutocomplete) {
+        signupAutocomplete = attachAutocomplete('custRegAddress', function(place) {
+            if (place.geometry && place.geometry.location) {
+                window.tempSignupCoordinates = {
+                    lat: place.geometry.location.lat(),
+                    lng: place.geometry.location.lng()
+                };
+                console.log('📍 Signup coords:', window.tempSignupCoordinates);
 
-function gm_authFailure() {
-    var status = document.getElementById('locationStatus');
-    if (status) {
-        status.textContent = '⚠️ Address search unavailable. Please enter address manually.';
-        status.style.color = '#e74c3c';
+                // Seed the checkout address + coords so they're used at order time
+                var deliveryField = document.getElementById('deliveryAddress');
+                if (deliveryField && !deliveryField.value) {
+                    deliveryField.value = place.formatted_address;
+                }
+                if (!window.tempCoordinates) {
+                    window.tempCoordinates = {
+                        lat: place.geometry.location.lat(),
+                        lng: place.geometry.location.lng()
+                    };
+                }
+            }
+        });
     }
 }
 
 function gm_authFailure() {
-    var status = document.getElementById('locationStatus');
-    if (status) {
-        status.textContent = '⚠️ Address search unavailable. Please enter address manually.';
-        status.style.color = '#e74c3c';
+    var checkoutStatus = document.getElementById('locationStatus');
+    if (checkoutStatus) {
+        checkoutStatus.textContent = '⚠️ Address search unavailable. Please enter address manually.';
+        checkoutStatus.style.color = '#e74c3c';
+    }
+    var signupStatus = document.getElementById('signupLocationStatus');
+    if (signupStatus) {
+        signupStatus.textContent = '⚠️ Address search unavailable. Please enter address manually.';
+        signupStatus.style.color = '#e74c3c';
     }
 }
+
 // ============================================================
 // REPEAT LAST ORDER
 // ============================================================
@@ -2782,7 +2926,7 @@ function repeatLastOrder() {
         });
         saveCart();
         renderCart();
-        showToast('✅ ' + last.items.length + ' item(s) added to cart');
+        showToast('✅ ' + last.items.length + ' item(s) added to cart', 'success');
         document.getElementById('repeatOrderBanner').style.display = 'none';
         setTimeout(scrollToCart, 300);
     }
@@ -2871,7 +3015,7 @@ function firstOrderBannerAction() {
     if (!section) return;
 
     section.style.display = 'block';
-    document.getElementById('loginPrompt').style.display = 'block';
+    document.getElementById('loginPrompt').style.display = 'none';
     document.getElementById('customerLoginForm').style.display = 'none';
     document.getElementById('customerRegisterForm').style.display = 'block';
 
@@ -2880,7 +3024,11 @@ function firstOrderBannerAction() {
     setTimeout(function() {
         var nameField = document.getElementById('custRegName');
         if (nameField) nameField.focus();
-    }, 500);
+        // Attach autocomplete now that the input is visible
+        if (window.google && google.maps && google.maps.places && !signupAutocomplete) {
+            initAutocomplete();
+        }
+    }, 400);
 }
 
 function getDeliveryFee() {
@@ -2889,7 +3037,7 @@ function getDeliveryFee() {
 }
 
 // ============================================================
-// RESTAURANT INFO — loads currency, name, fees from backend
+// RESTAURANT INFO
 // ============================================================
 function loadRestaurantInfo() {
     return fetch(withRestaurant(API + '/restaurant-info'))
@@ -2906,11 +3054,9 @@ function loadRestaurantInfo() {
 
             document.title = data.name || document.title;
 
-            // Update footer brand if present
             var brandEl = document.querySelector('.footer .brand-name');
             if (brandEl && data.name) brandEl.textContent = data.name;
 
-            // Update floating cart text (which used to include a hardcoded UGX)
             var totalEl = document.getElementById('floatingCartTotal');
             if (totalEl) totalEl.textContent = formatMoney(0);
 
@@ -2985,24 +3131,29 @@ function forceReload() {
 loadCart();
 checkCustomerLogin();
 
-var cachedCustomer = null;
-try {
-    cachedCustomer = JSON.parse(localStorage.getItem('harvestCurrentCustomer'));
-} catch (e) {}
+// If no logged-in customer, ensure login section is visible
+(function showLoginIfAnonymous() {
+    var cached = null;
+    try { cached = JSON.parse(localStorage.getItem('harvestCurrentCustomer')); } catch (e) {}
+    if (!cached) {
+        var section = document.getElementById('customerLoginSection');
+        if (section) section.style.display = 'block';
+    }
+})();
 
 updateFirstOrderBanner('anonymous');
 
 loadRestaurantInfo().then(function() {
     loadMenuFromStorage();
     checkFirstOrderStatus();
+    renderCart();
+    checkRepeatOrder();
 });
 
 (function restoreTracking() {
     var savedOrderId = localStorage.getItem('harvestTrackingOrderId');
     if (savedOrderId) startTrackingOrder(savedOrderId);
 })();
-
-setTimeout(checkRepeatOrder, 800);
 
 document.addEventListener('visibilitychange', function() {
     if (!document.hidden) {
