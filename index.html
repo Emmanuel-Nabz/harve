@@ -890,6 +890,7 @@
         <div id="installText" style="font-size:0.8em;color:#95a5a6;line-height:1.3;">Add to your home screen for quick access</div>
     </div>
     <button id="installBtn" onclick="handleInstallClick()" style="background:#e67e22;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;white-space:nowrap;">Install</button>
+<button id="installCloseBtn" type="button" aria-label="Dismiss install banner" style="background:transparent;color:#7f8c8d;border:none;font-size:1.5em;cursor:pointer;padding:8px 14px;line-height:1;position:relative;z-index:10000;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;pointer-events:auto;flex-shrink:0;">&times;</button>
     <button onclick="dismissInstall()" style="background:transparent;color:#7f8c8d;border:none;font-size:1.3em;cursor:pointer;padding:4px 8px;line-height:1;">&times;</button>
 </div>
 
@@ -1181,6 +1182,27 @@
 // ============================================================
 var API = 'https://api.nabztech.com/api';
 var APP_VERSION = '1.0.0';
+
+// ============================================================
+// STANDALONE DETECTION
+// ============================================================
+var IS_STANDALONE = (function() {
+    try {
+        if (window.matchMedia('(display-mode: standalone)').matches) return true;
+        if (window.matchMedia('(display-mode: fullscreen)').matches) return true;
+        if (window.matchMedia('(display-mode: minimal-ui)').matches) return true;
+        if (window.navigator.standalone === true) return true;
+    } catch (e) {}
+    return false;
+})();
+console.log('📱 Standalone mode?', IS_STANDALONE);
+
+if (IS_STANDALONE) {
+    document.addEventListener('DOMContentLoaded', function() {
+        var banner = document.getElementById('installBanner');
+        if (banner) { banner.style.display = 'none'; banner.remove(); }
+    });
+}
 
 // ============================================================
 // RESTAURANT CONTEXT
