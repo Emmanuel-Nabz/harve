@@ -889,7 +889,8 @@
         <div style="font-weight:700;font-size:0.95em;color:#fff;margin-bottom:2px;">Install Harvest</div>
         <div id="installText" style="font-size:0.8em;color:#95a5a6;line-height:1.3;">Add to your home screen for quick access</div>
     </div>
-    <button id="installBtn" onclick="handleInstallClick()" style="background:#e67e22;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;white-space:nowrap;">Install</button>
+   <button id="installBtn" onclick="handleInstallClick()" style="background:#e67e22;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:700;font-size:0.85em;cursor:pointer;white-space:nowrap;">Install</button>
+<button id="installCloseBtn" type="button" aria-label="Dismiss install banner" style="background:transparent;color:#7f8c8d;border:none;font-size:1.5em;cursor:pointer;padding:8px 14px;line-height:1;position:relative;z-index:10000;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;pointer-events:auto;flex-shrink:0;">&times;</button>
 <button id="installCloseBtn" type="button" aria-label="Dismiss install banner" style="background:transparent;color:#7f8c8d;border:none;font-size:1.5em;cursor:pointer;padding:8px 14px;line-height:1;position:relative;z-index:10000;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;pointer-events:auto;flex-shrink:0;">&times;</button>
     <button onclick="dismissInstall()" style="background:transparent;color:#7f8c8d;border:none;font-size:1.3em;cursor:pointer;padding:4px 8px;line-height:1;">&times;</button>
 </div>
@@ -3703,6 +3704,100 @@ setTimeout(function() {
     setTimeout(cleanGoogleOverlays, 3000);
     setTimeout(cleanGoogleOverlays, 6000);
 })();
+// ============================================================
+// ATTACH INSTALL BANNER CLOSE BUTTON (×)
+// ============================================================
+function attachInstallCloseButton() {
+    var btn = document.getElementById('installCloseBtn');
+    if (!btn) {
+        console.warn('⚠️ installCloseBtn not found');
+        return;
+    }
+    if (btn.dataset.handlerAttached === '1') return;
+    btn.dataset.handlerAttached = '1';
+
+    function onDismiss(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        console.log('🚫 × button tapped');
+        var banner = document.getElementById('installBanner');
+        if (banner) banner.style.display = 'none';
+        localStorage.setItem('harvestInstallDismissed', '1');
+        sessionStorage.setItem('harvestInstallBannerShownThisSession', '1');
+    }
+
+    btn.addEventListener('click', onDismiss);
+    btn.addEventListener('touchend', onDismiss, { passive: false });
+
+    console.log('✅ Install close button attached');
+}
+
+// Run as soon as DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachInstallCloseButton);
+} else {
+    attachInstallCloseButton();
+}
+setTimeout(attachInstallCloseButton, 500);
+setTimeout(attachInstallCloseButton, 1500);
+
+// ============================================================
+// PRETTY INSTALL INSTRUCTIONS MODAL
+// ============================================================
+function showInstallInstructions(platform) {
+    var existing = document.getElementById('installInstructionsModal');
+    if (existing) existing.remove();
+
+    var title = 'Add to Home Screen';
+    var steps;
+
+    if (platform === 'ios') {
+        steps = [
+            'Tap the <strong>Share</strong> button <span style="font-size:1.3em;">□↑</span> at the bottom of Safari',
+            'Scroll down and tap <strong>"Add to Home Screen"</strong>',
+            'Tap <strong>"Add"</strong> in the top-right corner'
+        ];
+    } else if (platform === 'firefox') {
+        steps = [
+            'Tap the <strong>⋮</strong> menu in Firefox',
+            'Tap <strong>"Add app to Home screen"</strong>',
+            'Tap <strong>"Add"</strong> to confirm'
+        ];
+    } else {
+        steps = [
+            'Open your browser menu <strong>(⋮ or ⋯)</strong>',
+            'Look for <strong>"Install app"</strong> or <strong>"Add to Home Screen"</strong>',
+            'Tap it to install'
+        ];
+    }
+
+    var stepsHtml = steps.map(function(s, i) {
+        return '<div style="display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;">' +
+                   '<div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#e67e22;color:white;font-weight:700;font-size:0.85em;display:flex;align-items:center;justify-content:center;">' + (i + 1) + '</div>' +
+                   '<div style="flex:1;font-size:0.92em;color:#2c3e50;line-height:1.5;">' + s + '</div>' +
+               '</div>';
+    }).join('');
+
+    var overlay = document.createElement('div');
+    overlay.id = 'installInstructionsModal';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:99999;padding:16px;';
+    overlay.innerHTML =
+        '<div style="background:white;border-radius:20px;padding:26px 22px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);">' +
+            '<div style="text-align:center;margin-bottom:20px;">' +
+                '<div style="font-size:2.6em;margin-bottom:8px;">📲</div>' +
+                '<h2 style="color:#2c3e50;font-size:1.2em;font-weight:700;margin:0;">' + title + '</h2>' +
+            '</div>' +
+            stepsHtml +
+            '<button onclick="document.getElementById(\'installInstructionsModal\').remove()" style="width:100%;background:linear-gradient(135deg,#27ae60,#1e8449);color:white;border:none;padding:14px;border-radius:24px;font-size:1em;font-weight:700;cursor:pointer;margin-top:8px;">Got it</button>' +
+        '</div>';
+
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) overlay.remove();
+    });
+}
 
 console.log('🚀 App loaded!');
 
