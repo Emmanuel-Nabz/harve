@@ -773,6 +773,25 @@
             70% { transform: scale(1.02); }
             100% { transform: scale(1); opacity: 1; }
         }
+        /* ===== FIX: Force address inputs to always be tappable ===== */
+        #custRegAddress,
+        #deliveryAddress {
+            position: relative !important;
+            z-index: 10 !important;
+            pointer-events: auto !important;
+            -webkit-user-select: text !important;
+            user-select: text !important;
+        }
+        .address-row {
+            position: relative;
+            z-index: 5;
+        }
+        /* Hide broken Google Places dropdown overlays */
+        .pac-container.pac-hidden,
+        .pac-container[style*="display: none"] {
+            display: none !important;
+            pointer-events: none !important;
+        }
 
         /* ===== GOOGLE PLACES AUTOCOMPLETE (override) ===== */
         .pac-container {
@@ -2610,11 +2629,9 @@ function shareSignupLocation() {
     var status = document.getElementById('signupLocationStatus');
     var addressField = document.getElementById('custRegAddress');
 
-    // Clear any existing validation error first
     var errEl = document.getElementById('custRegError');
     if (errEl) errEl.textContent = '';
 
-    // Focus the address field so the user can start typing if GPS fails
     if (addressField) addressField.focus();
 
     status.textContent = '📍 Getting your location…';
@@ -2627,8 +2644,6 @@ function shareSignupLocation() {
     }
 
     var resolved = false;
-
-    // Hard timeout in case the browser never fires either callback
     var hardTimeout = setTimeout(function() {
         if (resolved) return;
         resolved = true;
@@ -2913,15 +2928,37 @@ function initAutocomplete() {
 }
 
 function gm_authFailure() {
+    console.warn('Google Maps auth failed — disabling autocomplete overlays');
+
+    // Kill any Google Places dropdown that might be blocking input
+    document.querySelectorAll('.pac-container').forEach(function(el) {
+        el.style.display = 'none';
+        el.style.pointerEvents = 'none';
+    });
+
+    // Mark inputs so we know autocomplete is off
+    ['deliveryAddress', 'custRegAddress'].forEach(function(id) {
+        var input = document.getElementById(id);
+        if (input) {
+            input.classList.add('no-autocomplete');
+            var parent = input.parentElement;
+            if (parent && parent.querySelector('.pac-container')) {
+                parent.querySelectorAll('.pac-container').forEach(function(p) {
+                    p.remove();
+                });
+            }
+        }
+    });
+
     var checkoutStatus = document.getElementById('locationStatus');
     if (checkoutStatus) {
-        checkoutStatus.textContent = '⚠️ Address search unavailable. Please enter address manually.';
-        checkoutStatus.style.color = '#e74c3c';
+        checkoutStatus.innerHTML = '⚠️ Address search unavailable — <strong>please type your address manually</strong>.';
+        checkoutStatus.style.color = '#e67e22';
     }
     var signupStatus = document.getElementById('signupLocationStatus');
     if (signupStatus) {
-        signupStatus.textContent = '⚠️ Address search unavailable. Please enter address manually.';
-        signupStatus.style.color = '#e74c3c';
+        signupStatus.innerHTML = '⚠️ Address search unavailable — <strong>please type your address manually</strong>.';
+        signupStatus.style.color = '#e67e22';
     }
 }
 
