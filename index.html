@@ -2658,6 +2658,31 @@ function attachAutocomplete(inputId, onPlaceSelected) {
     }
 }
 
+// Attach Google Places autocomplete to any input by ID.
+// onPlaceSelected(place, input) is called after a place is picked.
+function attachAutocomplete(inputId, onPlaceSelected) {
+    var input = document.getElementById(inputId);
+    if (!input) return null;
+    try {
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ['geocode', 'establishment']
+        });
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (place && place.formatted_address) {
+                input.value = place.formatted_address;
+                if (typeof onPlaceSelected === 'function') {
+                    onPlaceSelected(place, input);
+                }
+            }
+        });
+        return autocomplete;
+    } catch (e) {
+        console.log('Google Places error for ' + inputId + ':', e);
+        return null;
+    }
+}
+
 function initAutocomplete() {
     // 1) Checkout delivery address — saves to window.tempCoordinates
     attachAutocomplete('deliveryAddress', function(place) {
@@ -2685,6 +2710,14 @@ function initAutocomplete() {
             console.log('📍 Signup coords:', window.tempSignupCoordinates);
         }
     });
+}
+
+function gm_authFailure() {
+    var status = document.getElementById('locationStatus');
+    if (status) {
+        status.textContent = '⚠️ Address search unavailable. Please enter address manually.';
+        status.style.color = '#e74c3c';
+    }
 }
 
 function gm_authFailure() {
